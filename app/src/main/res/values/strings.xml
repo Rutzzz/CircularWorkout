@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">CircularWorkout</string>
+    <string name="app_name">Circular Workout</string>
+
+    <string name="menu_start_workout">Start workout</string>
+    <string name="menu_view_statistics">View statistics</string>
+    <string name="menu_settings">Settings</string>
 </resources>
