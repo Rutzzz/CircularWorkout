@@ -10,6 +10,18 @@
         android:name="cz.muni.fi.circularworkout.ui.menu.MenuFragment"
         tools:layout="@layout/fragment_menu"
         android:label="MenuFragment" >
+
+        <action
+            android:id="@+id/action_menu_to_workout_setup"
+            app:destination="@+id/workout_setup_fragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/workout_setup_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutSetupFragment"
+        tools:layout="@layout/fragment_workout_setup"
+        android:label="WorkoutSetupFragment" >
     </fragment>
 
 </navigation>
