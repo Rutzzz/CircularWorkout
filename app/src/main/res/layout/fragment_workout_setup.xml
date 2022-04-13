@@ -1,11 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/app_background"
     tools:context=".ui.workout.WorkoutSetupFragment">
 
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/menu_workout_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WORKOUT SETUP"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="38sp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="id/back_to_menu_item"
+        app:layout_constraintTop_toTopOf="id/back_to_menu_item" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_to_menu_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:alpha="0.70"
+        app:icon="?attr/actionModeCloseDrawable"
+        app:layout_constraintEnd_toEndOf="id/menu_workout_setup"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+        /app:layout_constraintTop_toBottomOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+    android:id="@+id/select_one"
+    style="@style/SetUpButton"
+    android:backgroundTint="@color/light_blue"
+    android:text=""
+    app:icon="@drawable/ic_dumbbell_solid"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/menu_workout_setup" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/select_two"
+        style="@style/SetUpButton"
+        android:backgroundTint="@color/light_blue"
+        android:text=""
+        app:icon="@drawable/ic_dumbbell_solid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_one" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/select_three"
+        style="@style/SetUpButton"
+        android:backgroundTint="@color/light_blue"
+        android:text=""
+        app:icon="@drawable/ic_dumbbell_solid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_two"
+        tools:ignore="InvalidId" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/select_four"
+        style="@style/SetUpButton"
+        android:backgroundTint="@color/light_blue"
+        android:text=""
+        app:icon="@drawable/ic_dumbbell_solid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_three" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/time"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/light_orange"
+        android:text="ADD"
+        app:icon="@android:drawable/ic_input_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_four" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/rounds"
+        style="@style/SetUpButton"
+        android:backgroundTint="@color/light_yellow"
+        android:text="ROUNDS"
+        app:icon="@android:drawable/ic_popup_sync"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/rest_time"
+        style="@style/SetUpButton"
+        android:backgroundTint="@color/light_yellow"
+        android:text="REST TIME"
+        app:icon="@android:drawable/ic_lock_idle_alarm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rounds" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/start_workout"
+        style="@style/MenuButton"
+        android:backgroundTint="@color/light_green"
+        android:text="START"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rest_time"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
