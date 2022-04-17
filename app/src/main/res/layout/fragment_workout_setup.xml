@@ -12,75 +12,66 @@
         android:id="@+id/menu_workout_setup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WORKOUT SETUP"
+        android:text="@string/workout_setup"
         android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textSize="38sp"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="id/back_to_menu_item"
-        app:layout_constraintTop_toTopOf="id/back_to_menu_item" />
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/back_to_menu_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        android:alpha="0.70"
-        app:icon="?attr/actionModeCloseDrawable"
-        app:layout_constraintEnd_toEndOf="id/menu_workout_setup"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-        /app:layout_constraintTop_toBottomOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <com.google.android.material.button.MaterialButton
-    android:id="@+id/select_one"
-    style="@style/SetUpButton"
-    android:backgroundTint="@color/light_blue"
-    android:text=""
-    app:icon="@drawable/ic_dumbbell_solid"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/menu_workout_setup" />
+        android:id="@+id/select_one"
+        style="@style/SetUpButton"
+        android:backgroundTint="@color/light_blue"
+        android:text="@string/select_body_part"
+        app:icon="@drawable/ic_arrow_down_solid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_workout_setup"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/select_two"
         style="@style/SetUpButton"
         android:backgroundTint="@color/light_blue"
-        android:text=""
-        app:icon="@drawable/ic_dumbbell_solid"
+        android:text="@string/select_body_part"
+        app:icon="@drawable/ic_arrow_down_solid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_one" />
+        app:layout_constraintTop_toBottomOf="@+id/select_one"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/select_three"
         style="@style/SetUpButton"
         android:backgroundTint="@color/light_blue"
-        android:text=""
-        app:icon="@drawable/ic_dumbbell_solid"
+        android:text="@string/select_body_part"
+        app:icon="@drawable/ic_arrow_down_solid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_two"
-        tools:ignore="InvalidId" />
+        tools:ignore="InvalidId,SpeakableTextPresentCheck" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/select_four"
         style="@style/SetUpButton"
         android:backgroundTint="@color/light_blue"
-        android:text=""
-        app:icon="@drawable/ic_dumbbell_solid"
+        android:text="@string/select_body_part"
+        app:icon="@drawable/ic_arrow_down_solid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_three" />
+        app:layout_constraintTop_toBottomOf="@+id/select_three"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/time"
+        android:id="@+id/add"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:backgroundTint="@color/light_orange"
-        android:text="ADD"
+        android:text="@string/add"
         app:icon="@android:drawable/ic_input_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,30 +81,42 @@
         android:id="@+id/rounds"
         style="@style/SetUpButton"
         android:backgroundTint="@color/light_yellow"
-        android:text="ROUNDS"
+        android:text="@string/rounds"
         app:icon="@android:drawable/ic_popup_sync"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time" />
+        app:layout_constraintTop_toBottomOf="@+id/add" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/rest_time"
         style="@style/SetUpButton"
         android:backgroundTint="@color/light_yellow"
-        android:text="REST TIME"
-        app:icon="@android:drawable/ic_lock_idle_alarm"
+        android:text="@string/rest_time"
+        app:icon="@drawable/ic_arrow_down_solid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rounds" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/save"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/light_orange"
+        android:text="@string/save_workout"
+        app:icon="@android:drawable/ic_input_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rest_time" />
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/start_workout"
         style="@style/MenuButton"
         android:backgroundTint="@color/light_green"
-        android:text="START"
+        android:text="@string/start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rest_time"/>
+        app:layout_constraintTop_toBottomOf="@+id/save"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
