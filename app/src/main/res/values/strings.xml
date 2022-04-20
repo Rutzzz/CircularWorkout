@@ -4,4 +4,7 @@
     <string name="menu_start_workout">Start workout</string>
     <string name="menu_view_statistics">View statistics</string>
     <string name="menu_settings">Settings</string>
+
+    <string name="nav_workouts">Workouts</string>
+    <string name="nav_statistics">Statistics</string>
 </resources>

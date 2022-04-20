@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menu_fragment">
+    app:startDestination="@id/workout_list_fragment">
 
     <fragment
         android:id="@+id/menu_fragment"
@@ -22,6 +22,19 @@
         android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutSetupFragment"
         tools:layout="@layout/fragment_workout_setup"
         android:label="WorkoutSetupFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/workout_list_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutListFragment"
+        tools:layout="@layout/fragment_workout_list"
+        android:label="WorkoutListFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/statistics_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.statistics.StatisticsFragment"
+        tools:layout="@layout/fragment_statistics"
+        android:label="StatisticsFragment" >
     </fragment>
 
 </navigation>
