@@ -6,15 +6,24 @@
     app:startDestination="@id/workout_list_fragment">
 
     <fragment
-        android:id="@+id/menu_fragment"
-        android:name="cz.muni.fi.circularworkout.ui.menu.MenuFragment"
-        tools:layout="@layout/fragment_menu"
-        android:label="MenuFragment" >
+        android:id="@+id/workout_list_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutListFragment"
+        tools:layout="@layout/fragment_workout_list"
+        android:label="WorkoutListFragment" >
+    </fragment>
 
-        <action
-            android:id="@+id/action_menu_to_workout_setup"
-            app:destination="@+id/workout_setup_fragment"/>
+    <fragment
+        android:id="@+id/statistics_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.statistics.StatisticsFragment"
+        tools:layout="@layout/fragment_statistics"
+        android:label="StatisticsFragment" >
+    </fragment>
 
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.settings.SettingsFragment"
+        tools:layout="@layout/fragment_settings"
+        android:label="SettingsFragment" >
     </fragment>
 
     <fragment
@@ -22,19 +31,6 @@
         android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutSetupFragment"
         tools:layout="@layout/fragment_workout_setup"
         android:label="WorkoutSetupFragment" >
-    </fragment>
-
-    <fragment
-        android:id="@+id/workout_list_fragment"
-        android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutListFragment"
-        tools:layout="@layout/fragment_workout_list"
-        android:label="WorkoutListFragment" >
-    </fragment>
-    <fragment
-        android:id="@+id/statistics_fragment"
-        android:name="cz.muni.fi.circularworkout.ui.statistics.StatisticsFragment"
-        tools:layout="@layout/fragment_statistics"
-        android:label="StatisticsFragment" >
     </fragment>
 
 </navigation>
