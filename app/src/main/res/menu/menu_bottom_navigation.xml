@@ -4,11 +4,16 @@
     <item
         android:id="@+id/workout_list_fragment"
         android:icon="@drawable/ic_dumbbell_solid"
-        android:title="@string/nav_workouts" />
+        android:title="@string/nav_workouts"/>
 
     <item
         android:id="@+id/statistics_fragment"
         android:icon="@drawable/ic_chart_column_solid"
-        android:title="@string/nav_statistics" />
+        android:title="@string/nav_statistics"/>
+
+    <item
+        android:id="@+id/menu_fragment"
+        android:icon="@drawable/ic_gear_solid"
+        android:title="@string/nav_settings"/>
 
 </menu>

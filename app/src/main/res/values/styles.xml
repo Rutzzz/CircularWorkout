@@ -15,4 +15,16 @@
         <item name="android:textSize">18sp</item>
         <item name="cornerRadius">12dp</item>
     </style>
+    
+    <style name="CustomBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:background">@color/blue_bg</item>
+        <item name="itemBackground">@color/blue_bg</item>
+        <item name="itemIconTint">@color/navigation_item_text</item>
+        <item name="itemTextColor">@color/navigation_item_text</item>
+        <item name="itemTextAppearanceActive">@style/NavTextActive</item>
+    </style>
+
+    <style name="NavTextActive">
+        <item name="android:textSize">13sp</item>
+    </style>
 </resources>
