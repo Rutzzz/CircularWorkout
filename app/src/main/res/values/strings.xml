@@ -4,4 +4,6 @@
     <string name="nav_workouts">Workouts</string>
     <string name="nav_statistics">Statistics</string>
     <string name="nav_settings">Settings</string>
+
+    <string name="button_new_workout">New workout</string>
 </resources>

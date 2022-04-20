@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutListBinding
 
 class WorkoutListFragment : Fragment() {
@@ -16,6 +17,9 @@ class WorkoutListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentWorkoutListBinding.inflate(layoutInflater, container, false)
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(WorkoutListFragmentDirections.actionListFragmentToSetupFragment())
+        }
         return binding.root
     }
 

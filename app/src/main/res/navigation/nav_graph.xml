@@ -10,6 +10,9 @@
         android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutListFragment"
         tools:layout="@layout/fragment_workout_list"
         android:label="WorkoutListFragment" >
+        <action
+            android:id="@+id/action_listFragment_to_setupFragment"
+            app:destination="@id/workout_setup_fragment"/>
     </fragment>
 
     <fragment
