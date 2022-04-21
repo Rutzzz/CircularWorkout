@@ -1,4 +1,4 @@
-package cz.muni.fi.circularworkout.ui.workout
+package cz.muni.fi.circularworkout.ui.workout.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,24 +7,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import cz.muni.fi.circularworkout.R
-import cz.muni.fi.circularworkout.databinding.FragmentWorkoutSetupBinding
+import cz.muni.fi.circularworkout.databinding.FragmentWorkoutDetailBinding
 
+class WorkoutDetailFragment : Fragment() {
 
-class WorkoutSetupFragment : Fragment() {
-
-    private lateinit var binding: FragmentWorkoutSetupBinding
+    private lateinit var binding: FragmentWorkoutDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentWorkoutSetupBinding.inflate(layoutInflater, container, false)
+        binding = FragmentWorkoutDetailBinding.inflate(layoutInflater, container, false)
         binding.toolbar.setNavigationIcon(R.drawable.ic_arrow_left_solid)
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
-        binding.toolbar.title = "New workout"
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.toolbar.title = WorkoutDetailFragmentArgs.fromBundle(requireArguments()).name
+
     }
 
 }

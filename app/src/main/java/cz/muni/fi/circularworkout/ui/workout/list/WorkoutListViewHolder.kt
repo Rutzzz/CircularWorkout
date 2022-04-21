@@ -1,4 +1,4 @@
-package cz.muni.fi.circularworkout.ui.workout
+package cz.muni.fi.circularworkout.ui.workout.list
 
 import androidx.recyclerview.widget.RecyclerView
 import cz.muni.fi.circularworkout.data.WorkoutListItem

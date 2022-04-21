@@ -1,4 +1,4 @@
-package cz.muni.fi.circularworkout.ui.workout
+package cz.muni.fi.circularworkout.ui.workout.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
