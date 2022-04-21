@@ -7,7 +7,7 @@ import cz.muni.fi.circularworkout.data.WorkoutListItem
 import cz.muni.fi.circularworkout.databinding.ItemWorkoutListBinding
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
 
-class WorkoutListAdapter : RecyclerView.Adapter<WorkoutListViewHolder>() {
+class WorkoutListAdapter(private val onItemClick: (WorkoutListItem) -> Unit) : RecyclerView.Adapter<WorkoutListViewHolder>() {
 
     private val workouts: List<WorkoutListItem> by lazy {
         workoutRepository.getMockedData()
@@ -23,7 +23,7 @@ class WorkoutListAdapter : RecyclerView.Adapter<WorkoutListViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: WorkoutListViewHolder, position: Int) {
-        holder.bind(workouts[position])
+        holder.bind(workouts[position], onItemClick)
     }
 
     override fun getItemCount(): Int = workouts.size

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_listFragment_to_setupFragment"
             app:destination="@id/workout_setup_fragment"/>
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/workout_detail_fragment"/>
     </fragment>
 
     <fragment
@@ -34,6 +37,18 @@
         android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutSetupFragment"
         tools:layout="@layout/fragment_workout_setup"
         android:label="WorkoutSetupFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/workout_detail_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutDetailFragment"
+        tools:layout="@layout/fragment_workout_detail"
+        android:label="WorkoutDetailFragment" >
+
+        <argument
+            android:name="name"
+            app:argType="string" />
+
     </fragment>
 
 </navigation>
