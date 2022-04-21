@@ -20,11 +20,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAlignment="textStart"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/workout_duration_text_view"
+            app:layout_constraintEnd_toStartOf="@id/workout_duration_image_view"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:text="Wednesday workout" />
+
+        <ImageView
+            android:id="@+id/workout_duration_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_clock_solid"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/workout_duration_text_view"
+            app:tint="@color/white"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/workout_item_timer_icon"
+            />
 
         <TextView
             android:id="@+id/workout_duration_text_view"

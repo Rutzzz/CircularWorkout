@@ -7,5 +7,6 @@
 
     <string name="button_new_workout">New workout</string>
 
+    <string name="workout_item_timer_icon">Timer icon</string>
     <string name="workout_item_start">Start</string>
 </resources>
