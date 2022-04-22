@@ -32,9 +32,16 @@ class ExerciseListAdapter : RecyclerView.Adapter<ExerciseListViewHolder>() {
 
     fun swapItems(from: Int, to: Int) {
         Collections.swap(exercises, from, to)
+        notifyItemMoved(from, to)
     }
 
     fun removeItem(pos: Int) {
         exercises.removeAt(pos)
+        notifyItemRemoved(pos)
+    }
+
+    fun addItem(muscleGroup: MuscleGroup) {
+        exercises.add(ExerciseListItem(muscleGroup))
+        notifyItemInserted(exercises.size - 1)
     }
 }

@@ -1,10 +1,10 @@
 package cz.muni.fi.circularworkout.ui.workout.setup
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,14 +46,12 @@ class WorkoutSetupFragment : Fragment() {
                     val from = viewHolder.adapterPosition
                     val to = target.adapterPosition
                     adapter.swapItems(from, to)
-                    adapter.notifyItemMoved(from, to)
                     return true
                 }
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val pos = viewHolder.adapterPosition
                     adapter.removeItem(pos)
-                    adapter.notifyItemRemoved(pos)
                 }
 
                 override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
@@ -76,5 +74,14 @@ class WorkoutSetupFragment : Fragment() {
         binding.exerciseRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         itemTouchHelper.attachToRecyclerView(binding.exerciseRecyclerView)
         binding.exerciseRecyclerView.adapter = adapter
+
+        binding.exerciseAddButton.setOnClickListener {
+            val dialog = AddExerciseDialogFragment( onItemPicked = {
+                adapter.addItem(it)
+            })
+            activity?.supportFragmentManager?.let {
+                dialog.show(it, "test")
+            }
+        }
     }
 }
