@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import cz.muni.fi.circularworkout.data.ExerciseListItem
 import cz.muni.fi.circularworkout.data.MuscleGroup
 import cz.muni.fi.circularworkout.databinding.ItemExerciseListBinding
+import java.util.*
 
 class ExerciseListAdapter : RecyclerView.Adapter<ExerciseListViewHolder>() {
 
-    private val exercises: List<ExerciseListItem> by lazy {
+    private val exercises: MutableList<ExerciseListItem> by lazy {
         mutableListOf(
             ExerciseListItem(MuscleGroup.CHEST),
             ExerciseListItem(MuscleGroup.BACK),
@@ -28,4 +29,12 @@ class ExerciseListAdapter : RecyclerView.Adapter<ExerciseListViewHolder>() {
     }
 
     override fun getItemCount(): Int = exercises.size
+
+    fun swapItems(from: Int, to: Int) {
+        Collections.swap(exercises, from, to)
+    }
+
+    fun removeItem(pos: Int) {
+        exercises.removeAt(pos)
+    }
 }
