@@ -3,25 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menu_fragment">
+    app:startDestination="@id/workout_list_fragment">
 
     <fragment
-        android:id="@+id/menu_fragment"
-        android:name="cz.muni.fi.circularworkout.ui.menu.MenuFragment"
-        tools:layout="@layout/fragment_menu"
-        android:label="MenuFragment" >
-
+        android:id="@+id/workout_list_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.workout.list.WorkoutListFragment"
+        tools:layout="@layout/fragment_workout_list"
+        android:label="WorkoutListFragment" >
         <action
-            android:id="@+id/action_menu_to_workout_setup"
-            app:destination="@+id/workout_setup_fragment"/>
+            android:id="@+id/action_listFragment_to_setupFragment"
+            app:destination="@id/workout_setup_fragment"/>
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/workout_detail_fragment"/>
+    </fragment>
 
+    <fragment
+        android:id="@+id/statistics_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.statistics.StatisticsFragment"
+        tools:layout="@layout/fragment_statistics"
+        android:label="StatisticsFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.settings.SettingsFragment"
+        tools:layout="@layout/fragment_settings"
+        android:label="SettingsFragment" >
     </fragment>
 
     <fragment
         android:id="@+id/workout_setup_fragment"
-        android:name="cz.muni.fi.circularworkout.ui.workout.WorkoutSetupFragment"
+        android:name="cz.muni.fi.circularworkout.ui.workout.setup.WorkoutSetupFragment"
         tools:layout="@layout/fragment_workout_setup"
         android:label="WorkoutSetupFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/workout_detail_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.workout.detail.WorkoutDetailFragment"
+        tools:layout="@layout/fragment_workout_detail"
+        android:label="WorkoutDetailFragment" >
+
+        <argument
+            android:name="name"
+            app:argType="string" />
+
     </fragment>
 
 </navigation>

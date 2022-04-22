@@ -11,4 +11,11 @@
     <color name="light_blue">#FF1ED5E0</color>
     <color name="light_orange">#FFE8A556</color>
     <color name="light_green">#FF8BE852</color>
+
+    <color name="green_500">#64DD17</color>
+    <color name="green_700">#9CFF57</color>
+    <color name="pink_500">#EC407A</color>
+    <color name="pink_700">#FF77A9</color>
+    <color name="blue_bg">#01579B</color>
+    <color name="white_dimmed">#AAFFFFFF</color>
 </resources>

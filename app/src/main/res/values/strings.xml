@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">Circular Workout</string>
 
-    <string name="menu_start_workout">Start workout</string>
-    <string name="menu_view_statistics">View statistics</string>
-    <string name="menu_settings">Settings</string>
+    <string name="nav_workouts">Workouts</string>
+    <string name="nav_statistics">Statistics</string>
+    <string name="nav_settings">Settings</string>
+
+    <string name="button_new_workout">New workout</string>
+
+    <string name="workout_item_timer_icon">Timer icon</string>
+    <string name="workout_item_start">Start</string>
+    <string name="muscle_group_cd">Muscle group</string>
+
+    <string-array name="exercises">
+        <item>Pull up</item>
+        <item>Push up</item>
+        <item>Squat</item>
+    </string-array>
 </resources>
