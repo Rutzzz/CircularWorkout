@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.fi.circularworkout.R
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutSetupBinding
 
@@ -27,4 +28,11 @@ class WorkoutSetupFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val adapter = ExerciseListAdapter()
+        binding.exerciseRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.exerciseRecyclerView.adapter = adapter
+    }
 }
