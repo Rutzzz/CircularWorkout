@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -27,8 +28,25 @@ class WorkoutSetupFragment : Fragment() {
             findNavController().navigateUp()
         }
         binding.toolbar.title = "New workout"
+        val pauseAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.pause,
+            android.R.layout.simple_spinner_item
+        )
+        val roundsAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.rounds,
+            android.R.layout.simple_spinner_item
+        )
+        binding.pause.optionsGroupTextView.setText("Pause")
+        binding.pause.exerciseSpinner.adapter = pauseAdapter
+        binding.rounds.optionsGroupTextView.setText("Rounds")
+        binding.rounds.exerciseSpinner.adapter = roundsAdapter
         return binding.root
+
+
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
