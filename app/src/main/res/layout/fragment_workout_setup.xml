@@ -49,117 +49,28 @@
             app:layout_constraintTop_toBottomOf="@id/exercise_recycler_view" />
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_id"
+        <include
+            android:id="@+id/pause"
+            layout="@layout/workout_options"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="60dp"
             android:layout_marginVertical="12dp"
-            app:cardElevation="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/exercise_add_button">
+            app:layout_constraintTop_toBottomOf="@id/exercise_add_button" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="0dp"
-                android:paddingBottom="8dp">
-
-                <ImageView
-                    android:id="@+id/options_group_image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/option_group_cd"
-                    android:src="@android:drawable/ic_menu_recent_history"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/white" />
-
-                <TextView
-                    android:id="@+id/muscle_group_text_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/options_group_image_view"
-                    app:layout_constraintStart_toStartOf="@id/options_group_image_view"
-                    app:layout_constraintTop_toBottomOf="@id/options_group_image_view"
-                    tools:text="Pause" />
-
-                <Spinner
-                    android:id="@+id/exercise_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="0dp"
-                    android:backgroundTint="@color/white"
-                    android:entries="@array/pause"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/options_group_image_view"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/rounds_card"
+        <include
+            android:id="@+id/rounds"
+            layout="@layout/workout_options"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="60dp"
             android:layout_marginVertical="12dp"
-            app:cardElevation="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_id">
+            app:layout_constraintTop_toBottomOf="@id/pause" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="0dp"
-                android:paddingBottom="8dp">
 
-                <ImageView
-                    android:id="@+id/options_rounds_image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/option_group_cd"
-                    android:src="@android:drawable/ic_popup_sync"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
 
-                    app:tint="@color/white" />
-
-                <TextView
-                    android:id="@+id/rounds_text_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/options_rounds_image_view"
-                    app:layout_constraintStart_toStartOf="@id/options_rounds_image_view"
-                    app:layout_constraintTop_toBottomOf="@id/options_rounds_image_view"
-                    tools:text="Rounds" />
-
-                <Spinner
-                    android:id="@+id/rounds_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="0dp"
-                    android:backgroundTint="@color/white"
-                    android:entries="@array/rounds"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/options_rounds_image_view"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/exercise_save_button"
@@ -172,7 +83,7 @@
             app:iconPadding="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rounds_card" />
+            app:layout_constraintTop_toBottomOf="@id/rounds" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/exercise_start_button"
