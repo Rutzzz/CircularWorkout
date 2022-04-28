@@ -7,11 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import cz.muni.fi.circularworkout.R
+import cz.muni.fi.circularworkout.data.WorkoutDetail
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutDetailBinding
 
 class WorkoutDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentWorkoutDetailBinding
+
+    private fun getMockedInstance(name: String) = WorkoutDetail(
+        name = name,
+        exerciseNames = listOf("Pull up", "Squat", "Dead lift", "Chin up"),
+        exerciseTime = 30,
+        restTime = 20,
+        rounds = 3
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,9 +36,15 @@ class WorkoutDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.toolbar.title = WorkoutDetailFragmentArgs.fromBundle(requireArguments()).name
-
+        val workout = getMockedInstance(WorkoutDetailFragmentArgs.fromBundle(requireArguments()).name)
+        binding.toolbar.title = workout.name
+        binding.exercise1TextView.text = workout.exerciseNames[0]
+        binding.exercise2TextView.text = workout.exerciseNames[1]
+        binding.exercise3TextView.text = workout.exerciseNames[2]
+        binding.exercise4TextView.text = workout.exerciseNames[3]
+        binding.roundsTextView.text = workout.rounds.toString()
+        binding.exerciseTimeTextView.text = workout.exerciseTime.toString()
+        binding.restTimeTextView.text = workout.restTime.toString()
     }
 
 }
