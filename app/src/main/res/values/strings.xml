@@ -15,7 +15,8 @@
     <string name="rest_time">Rest time:</string>
     <string name="option_group_cd">Option group</string>
     <string name="save">SAVE</string>
-    <string name="start">START WORKOUT</string>
+    <string name="start">START</string>
+    <string name="delete">Delete</string>
 
     <string-array name="exercises">
         <item>Pull up</item>
