@@ -46,8 +46,8 @@ class WorkoutDetailFragment : Fragment() {
         binding.toolbar.title = workout.name
         buildExerciseLayout(workout.exerciseNames)
         binding.roundsTextView.text = workout.rounds.toString()
-        binding.exerciseTimeTextView.text = workout.exerciseTime.toString()
-        binding.restTimeTextView.text = workout.restTime.toString()
+        binding.exerciseTimeTextView.text = workout.exerciseTime.toString() + " s"
+        binding.restTimeTextView.text = workout.restTime.toString() + " s"
     }
 
     private fun buildExerciseLayout(exerciseNames: List<String>) =
