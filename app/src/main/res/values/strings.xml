@@ -10,9 +10,13 @@
     <string name="workout_item_timer_icon">Timer icon</string>
     <string name="workout_item_start">Start</string>
     <string name="muscle_group_cd">Muscle group</string>
+    <string name="repetitions_image">Repetitions image</string>
+    <string name="exercise_time">Exercise time:</string>
+    <string name="rest_time">Rest time:</string>
     <string name="option_group_cd">Option group</string>
     <string name="save">SAVE</string>
-    <string name="start">START WORKOUT</string>
+    <string name="start">START</string>
+    <string name="delete">Delete</string>
 
     <string-array name="exercises">
         <item>Pull up</item>
