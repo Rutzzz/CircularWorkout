@@ -38,10 +38,17 @@ class WorkoutSetupFragment : Fragment() {
             R.array.rounds,
             android.R.layout.simple_spinner_item
         )
+        val exerciseAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.exercise_time,
+            android.R.layout.simple_spinner_item
+        )
         binding.pause.optionsGroupTextView.setText("Pause")
         binding.pause.exerciseSpinner.adapter = pauseAdapter
         binding.rounds.optionsGroupTextView.setText("Rounds")
         binding.rounds.exerciseSpinner.adapter = roundsAdapter
+        binding.exerciseTime.optionsGroupTextView.setText("Exercise time")
+        binding.exerciseTime.exerciseSpinner.adapter = exerciseAdapter
         return binding.root
 
 
