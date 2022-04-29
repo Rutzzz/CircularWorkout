@@ -37,45 +37,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent">
-            <TextView
-                android:id="@+id/exercise_1_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="Pull up"/>
-            <View
-                android:id="@+id/exercise_12_line"
-                android:layout_width="4dp"
-                android:layout_height="30dp"
-                android:background="@color/white"/>
-            <TextView
-                android:id="@+id/exercise_2_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="Squat"/>
-            <View
-                android:id="@+id/exercise_23_line"
-                android:layout_width="4dp"
-                android:layout_height="30dp"
-                android:background="@color/white"/>
-            <TextView
-                android:id="@+id/exercise_3_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="Push up"/>
-            <View
-                android:id="@+id/exercise_34_line"
-                android:layout_width="4dp"
-                android:layout_height="30dp"
-                android:background="@color/white"/>
-            <TextView
-                android:id="@+id/exercise_4_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="Chin up"/>
         </LinearLayout>
         <TextView
             android:id="@+id/rounds_text_view"

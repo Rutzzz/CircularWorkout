@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/drawable-v24/empty_divider.xml" value="0.124" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2115" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/drawable/app_background.xml" value="0.2115" />
+        <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/drawable/ic_arrow_down_long_solid.xml" value="0.124" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/drawable/ic_arrow_left_solid.xml" value="0.236" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/drawable/ic_back_male.xml" value="0.124" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/drawable/ic_chart_column_solid.xml" value="0.124" />
@@ -23,6 +25,7 @@
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/layout/fragment_workout_detail.xml" value="0.33" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/layout/fragment_workout_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/layout/fragment_workout_setup.xml" value="0.25" />
+        <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/layout/item_exercise_detail_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/layout/item_exercise_list.xml" value="0.33" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/layout/item_spinner.xml" value="0.5" />
         <entry key="..\:/Users/ondra/AndroidStudioProjects/CircularWorkout/app/src/main/res/layout/item_workout_list.xml" value="0.33" />
