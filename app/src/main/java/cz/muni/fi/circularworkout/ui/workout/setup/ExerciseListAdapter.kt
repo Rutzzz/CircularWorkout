@@ -44,4 +44,8 @@ class ExerciseListAdapter : RecyclerView.Adapter<ExerciseListViewHolder>() {
         exercises.add(ExerciseListItem(muscleGroup))
         notifyItemInserted(exercises.size - 1)
     }
+
+    fun getSelectedExercises() : List<String> = exercises.map {
+        it.muscleGroup.exercises[it.selectedExercise.toInt()]
+    }
 }

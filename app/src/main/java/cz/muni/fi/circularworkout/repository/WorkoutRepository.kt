@@ -1,6 +1,7 @@
 package cz.muni.fi.circularworkout.repository
 
 import android.content.Context
+import cz.muni.fi.circularworkout.data.WorkoutCreate
 import cz.muni.fi.circularworkout.data.WorkoutListItem
 import cz.muni.fi.circularworkout.database.CWDatabase
 import cz.muni.fi.circularworkout.database.WorkoutEntityDao
@@ -31,5 +32,9 @@ class WorkoutRepository(
             .map {
                 it.toWorkoutListItem()
             }
+
+    fun create(workout: WorkoutCreate) = workoutDao.save(workout.toWorkoutEntity())
+
+    fun workoutWithNameExists(name: String) : Boolean = workoutDao.getByName(name) != null
 
 }

@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 class WorkoutEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Long,
     val name: String,
     val exercises: List<String>,
