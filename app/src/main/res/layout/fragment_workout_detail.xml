@@ -113,7 +113,7 @@
         app:layout_constraintEnd_toStartOf="@id/start_workout_button"
         android:backgroundTint="?colorSecondary"
         app:icon="@drawable/ic_trash_solid"
-        android:text="@string/delete"/>
+        android:text="@string/delete" />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/start_workout_button"
         android:layout_width="0dp"

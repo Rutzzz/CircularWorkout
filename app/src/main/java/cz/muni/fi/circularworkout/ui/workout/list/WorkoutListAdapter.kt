@@ -9,6 +9,9 @@ import cz.muni.fi.circularworkout.repository.WorkoutRepository
 
 class WorkoutListAdapter(private val workoutRepository: WorkoutRepository, val onItemClick: (WorkoutListItem) -> Unit) : RecyclerView.Adapter<WorkoutListViewHolder>() {
 
+    private var listItems: MutableList<WorkoutListItem> = mutableListOf()
+    lateinit var onFavoriteClick: (WorkoutListItem, Int) -> Unit
+
     private val workouts: List<WorkoutListItem> by lazy {
         workoutRepository.getAll()
     }
@@ -20,6 +23,16 @@ class WorkoutListAdapter(private val workoutRepository: WorkoutRepository, val o
 
     override fun onBindViewHolder(holder: WorkoutListViewHolder, position: Int) {
         holder.bind(workouts[position], onItemClick)
+    }
+
+    fun removeItem(position: Int) {
+        listItems.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+    fun submitList(newListItems: List<WorkoutListItem>) {
+        listItems = newListItems.toMutableList()
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = workouts.size

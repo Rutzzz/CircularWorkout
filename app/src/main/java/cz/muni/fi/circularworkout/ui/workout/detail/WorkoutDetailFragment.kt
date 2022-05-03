@@ -1,20 +1,22 @@
 package cz.muni.fi.circularworkout.ui.workout.detail
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.text.InputType
 import android.util.TypedValue.COMPLEX_UNIT_SP
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import cz.muni.fi.circularworkout.R
-import cz.muni.fi.circularworkout.data.WorkoutDetail
+import cz.muni.fi.circularworkout.data.WorkoutCreate
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutDetailBinding
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
+import cz.muni.fi.circularworkout.ui.workout.list.WorkoutListAdapter
+import cz.muni.fi.circularworkout.ui.workout.setup.SaveWorkoutDialogFragment
 import java.lang.IllegalStateException
 
 
@@ -47,6 +49,14 @@ class WorkoutDetailFragment : Fragment() {
         binding.roundsTextView.text = workout.rounds.toString()
         binding.exerciseTimeTextView.text = workout.exerciseTime.toString() + " s"
         binding.restTimeTextView.text = workout.restTime.toString() + " s"
+        binding.deleteButton.setOnClickListener {
+            val dialog = DeleteWorkoutDetailFragmentDialog {
+                workoutRepository.delete(id.toLong())
+            }
+            activity?.supportFragmentManager?.let {
+                dialog.show(it, "delete")
+            }
+        }
     }
 
     private fun buildExerciseLayout(exerciseNames: List<String>) =
@@ -66,5 +76,9 @@ class WorkoutDetailFragment : Fragment() {
             binding.exercisesLayout.addView(image)
         }
     }
+
+
+
+
 
 }
