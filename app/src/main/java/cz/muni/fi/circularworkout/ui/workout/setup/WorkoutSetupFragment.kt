@@ -15,6 +15,8 @@ import cz.muni.fi.circularworkout.R
 import cz.muni.fi.circularworkout.data.WorkoutCreate
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutSetupBinding
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
+import cz.muni.fi.circularworkout.util.getExercises
+import cz.muni.fi.circularworkout.util.getMuscleGroups
 
 
 class WorkoutSetupFragment : Fragment() {
@@ -65,7 +67,7 @@ class WorkoutSetupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ExerciseListAdapter()
+        val adapter = ExerciseListAdapter(requireContext())
         val simpleItemTouchCallback =
             object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN,
                 ItemTouchHelper.START or ItemTouchHelper.END) {
@@ -110,7 +112,7 @@ class WorkoutSetupFragment : Fragment() {
         binding.exerciseAddButton.setOnClickListener {
             val dialog = AddExerciseDialogFragment( onItemPicked = {
                 adapter.addItem(it)
-            })
+            }, muscleGroups = getMuscleGroups(getExercises(requireContext())))
             activity?.supportFragmentManager?.let {
                 dialog.show(it, "test")
             }

@@ -1,26 +1,34 @@
 package cz.muni.fi.circularworkout.ui.workout.setup
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cz.muni.fi.circularworkout.data.ExerciseListItem
-import cz.muni.fi.circularworkout.data.MuscleGroup
 import cz.muni.fi.circularworkout.databinding.ItemExerciseListBinding
+import cz.muni.fi.circularworkout.util.getExerciseOptions
+import cz.muni.fi.circularworkout.util.getExercises
+import cz.muni.fi.circularworkout.util.getMuscleGroups
 import java.util.*
 
-class ExerciseListAdapter : RecyclerView.Adapter<ExerciseListViewHolder>() {
+class ExerciseListAdapter(private val context: Context) : RecyclerView.Adapter<ExerciseListViewHolder>() {
 
     private val exercises: MutableList<ExerciseListItem> by lazy {
-        mutableListOf(
-            ExerciseListItem(MuscleGroup.CHEST),
-            ExerciseListItem(MuscleGroup.BACK),
-            ExerciseListItem(MuscleGroup.LEGS)
-        )
+        getMuscleGroups(getExercises(context)).map {
+            ExerciseListItem(
+                muscleGroup = it,
+                selectedExercise = 0L
+            )
+        }.toMutableList()
+    }
+
+    private val options: Map<String, List<String>> by lazy {
+        getExerciseOptions(getExercises(context))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseListViewHolder {
         val binding = ItemExerciseListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ExerciseListViewHolder(binding)
+        return ExerciseListViewHolder(getExercises(context), binding)
     }
 
     override fun onBindViewHolder(holder: ExerciseListViewHolder, position: Int) {
@@ -40,12 +48,13 @@ class ExerciseListAdapter : RecyclerView.Adapter<ExerciseListViewHolder>() {
         notifyItemRemoved(pos)
     }
 
-    fun addItem(muscleGroup: MuscleGroup) {
+    fun addItem(muscleGroup: String) {
         exercises.add(ExerciseListItem(muscleGroup))
         notifyItemInserted(exercises.size - 1)
     }
 
     fun getSelectedExercises() : List<String> = exercises.map {
-        it.muscleGroup.exercises[it.selectedExercise.toInt()]
+        val exercisesForMuscleGroup = options[it.muscleGroup]!!
+        exercisesForMuscleGroup[it.selectedExercise.toInt()]
     }
 }
