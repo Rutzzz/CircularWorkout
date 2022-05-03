@@ -9,7 +9,8 @@ class WorkoutListViewHolder(private val binding: ItemWorkoutListBinding)
 
         fun bind(listItem: WorkoutListItem, onItemClick: (WorkoutListItem) -> Unit) {
             binding.workoutNameTextView.text = listItem.name
-            binding.workoutDurationTextView.text = listItem.duration.minute.toString() + "m"
+            val minutes = listItem.duration.minute + listItem.duration.hour * 60
+            binding.workoutDurationTextView.text = minutes.toString() + "m"
             binding.root.setOnClickListener {
                 onItemClick(listItem)
             }

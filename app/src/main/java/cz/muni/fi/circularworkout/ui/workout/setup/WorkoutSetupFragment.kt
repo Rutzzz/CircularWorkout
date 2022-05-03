@@ -5,18 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cz.muni.fi.circularworkout.R
+import cz.muni.fi.circularworkout.data.WorkoutCreate
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutSetupBinding
+import cz.muni.fi.circularworkout.repository.WorkoutRepository
+import cz.muni.fi.circularworkout.util.getExercises
+import cz.muni.fi.circularworkout.util.getMuscleGroups
 
 
 class WorkoutSetupFragment : Fragment() {
 
     private lateinit var binding: FragmentWorkoutSetupBinding
+
+    private val workoutRepository: WorkoutRepository by lazy {
+        WorkoutRepository(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,7 +67,7 @@ class WorkoutSetupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ExerciseListAdapter()
+        val adapter = ExerciseListAdapter(requireContext())
         val simpleItemTouchCallback =
             object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN,
                 ItemTouchHelper.START or ItemTouchHelper.END) {
@@ -103,9 +112,32 @@ class WorkoutSetupFragment : Fragment() {
         binding.exerciseAddButton.setOnClickListener {
             val dialog = AddExerciseDialogFragment( onItemPicked = {
                 adapter.addItem(it)
-            })
+            }, muscleGroups = getMuscleGroups(getExercises(requireContext())))
             activity?.supportFragmentManager?.let {
                 dialog.show(it, "test")
+            }
+        }
+
+        binding.saveButton.setOnClickListener {
+            val dialog = SaveWorkoutDialogFragment( onNamePicked = { name ->
+                if (!workoutRepository.workoutWithNameExists(name)) {
+                    val newWorkout = WorkoutCreate(
+                        name = name,
+                        exercises = adapter.getSelectedExercises(),
+                        exerciseTime = binding.exerciseTime.exerciseSpinner.selectedItem.toString().toInt(),
+                        restTime = binding.pause.exerciseSpinner.selectedItem.toString().toInt(),
+                        rounds = binding.rounds.exerciseSpinner.selectedItem.toString().toInt()
+                    )
+                    workoutRepository.create(newWorkout)
+                    binding.saveButton.isEnabled = false
+                    Toast.makeText(requireContext(), "Workout successfully saved", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Workout with that name already exists", Toast.LENGTH_SHORT).show()
+                }
+
+            })
+            activity?.supportFragmentManager?.let {
+                dialog.show(it, "save")
             }
         }
     }
