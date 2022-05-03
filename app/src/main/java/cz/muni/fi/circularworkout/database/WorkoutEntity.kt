@@ -8,7 +8,7 @@ class WorkoutEntity(
     @PrimaryKey
     val id: Long,
     val name: String,
-    val exerciseIds: List<Int>,
+    val exercises: List<String>,
     val exerciseTime: Int,
     val restTime: Int,
     val rounds: Int
