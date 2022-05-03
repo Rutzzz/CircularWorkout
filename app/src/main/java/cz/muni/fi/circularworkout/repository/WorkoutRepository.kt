@@ -33,6 +33,9 @@ class WorkoutRepository(
                 it.toWorkoutListItem()
             }
 
+    fun getDetailByName(name: String) =
+        workoutDao.getByName(name)?.toWorkoutDetail()
+
     fun create(workout: WorkoutCreate) = workoutDao.save(workout.toWorkoutEntity())
 
     fun workoutWithNameExists(name: String) : Boolean = workoutDao.getByName(name) != null

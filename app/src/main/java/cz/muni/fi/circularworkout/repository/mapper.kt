@@ -1,6 +1,7 @@
 package cz.muni.fi.circularworkout.repository
 
 import cz.muni.fi.circularworkout.data.WorkoutCreate
+import cz.muni.fi.circularworkout.data.WorkoutDetail
 import cz.muni.fi.circularworkout.data.WorkoutListItem
 import cz.muni.fi.circularworkout.database.WorkoutEntity
 import java.time.LocalTime
@@ -20,6 +21,15 @@ fun WorkoutCreate.toWorkoutEntity() : WorkoutEntity = WorkoutEntity(
     id = 0,
     name = this.name,
     exercises = this.exercises,
+    exerciseTime = this.exerciseTime,
+    restTime = this.restTime,
+    rounds = this.rounds
+)
+
+fun WorkoutEntity.toWorkoutDetail() : WorkoutDetail = WorkoutDetail(
+    id = this.id,
+    name = this.name,
+    exerciseNames = this.exercises,
     exerciseTime = this.exerciseTime,
     restTime = this.restTime,
     rounds = this.rounds
