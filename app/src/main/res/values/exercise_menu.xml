@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <exercise>
+        <category>ABS</category>
+        <name>Russian Twist</name>
+        <primary>abs</primary>
+        <secondary>Obliques and core</secondary>
+        <description>Sit upright on the floor with legs slightly bent and turn the upper torso to the left and then to the right</description>
+    </exercise>
+
+    <exercise>
+        <category>ABS</category>
+        <name>Crunches</name>
+        <primary>abs</primary>
+        <secondary>Core</secondary>
+        <description>The crunches begins lying on your back with your legs bent at the knees. The torso bent so that the shoulders are close to the pelvis</description>
+    </exercise>
+
+    <exercise>
+        <category>ABS</category>
+        <name>Scizzors</name>
+        <primary>abs</primary>
+        <secondary>Core</secondary>
+        <description>Scissors -lying on your back, raising both legs off of the ground, then criss-crossing one over the other</description>
+    </exercise>
+
+    <exercise>
+        <category>ABS</category>
+        <name>Bicycle Crunches</name>
+        <primary>ABS</primary>
+        <secondary>Upper abs and core</secondary>
+        <description>you lie on your back and use your legs to simulate cycling</description>
+    </exercise>
+
+    <exercise>
+        <category>Legs</category>
+        <name>Squats</name>
+        <primary>legs</primary>
+        <secondary>harmstrings, butt, lower back</secondary>
+        <description>You must straddle shoulder width apart and then go into a squat so that you don't lift your heels off the ground</description>
+    </exercise>
+
+    <exercise>
+        <category>Legs</category>
+        <name>Sumo squats</name>
+        <primary>legs</primary>
+        <secondary>lower back</secondary>
+        <description>you must straddle a width greater than the width of your shoulders and then perform a squat while keeping your heels on the ground</description>
+    </exercise>
+
+    <exercise>
+        <category>Legs</category>
+        <name></name>
+        <primary>legs</primary>
+        <secondary></secondary>
+        <description></description>
+    </exercise>
+
+    <exercise>
+        <category></category>
+        <name></name>
+        <primary>legs</primary>
+        <secondary></secondary>
+        <description></description>
+    </exercise>
+
+    <exercise>
+        <category></category>
+        <name></name>
+        <primary></primary>
+        <secondary></secondary>
+        <description></description>
+    </exercise>
+
+</resources>
