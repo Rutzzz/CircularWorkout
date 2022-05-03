@@ -1,10 +1,17 @@
 package cz.muni.fi.circularworkout.repository
 
+import android.content.Context
+import cz.muni.fi.circularworkout.data.WorkoutCreate
 import cz.muni.fi.circularworkout.data.WorkoutListItem
+import cz.muni.fi.circularworkout.database.CWDatabase
+import cz.muni.fi.circularworkout.database.WorkoutEntityDao
 import java.time.LocalDate
 import java.time.LocalTime
 
-class WorkoutRepository {
+class WorkoutRepository(
+    context: Context,
+    private val workoutDao: WorkoutEntityDao = CWDatabase.create(context).workoutEntityDao()
+) {
     fun getMockedData(count: Int = 5): List<WorkoutListItem> =
         mutableListOf<WorkoutListItem>().apply {
             repeat(count) {
@@ -19,5 +26,18 @@ class WorkoutRepository {
                 add(item)
             }
         }
+
+    fun getAll() : List<WorkoutListItem> =
+        workoutDao.getAll()
+            .map {
+                it.toWorkoutListItem()
+            }
+
+    fun getDetailByName(name: String) =
+        workoutDao.getByName(name)?.toWorkoutDetail()
+
+    fun create(workout: WorkoutCreate) = workoutDao.save(workout.toWorkoutEntity())
+
+    fun workoutWithNameExists(name: String) : Boolean = workoutDao.getByName(name) != null
 
 }

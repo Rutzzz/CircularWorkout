@@ -8,10 +8,15 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutListBinding
+import cz.muni.fi.circularworkout.repository.WorkoutRepository
 
 class WorkoutListFragment : Fragment() {
 
     private lateinit var binding: FragmentWorkoutListBinding
+
+    private val workoutRepository: WorkoutRepository by lazy {
+        WorkoutRepository(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +32,7 @@ class WorkoutListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = WorkoutListAdapter(onItemClick = {
+        val adapter = WorkoutListAdapter(workoutRepository = workoutRepository, onItemClick = {
             findNavController()
                 .navigate(WorkoutListFragmentDirections.actionListFragmentToDetailFragment(it.name))
         })

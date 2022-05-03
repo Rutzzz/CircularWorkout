@@ -5,21 +5,17 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import cz.muni.fi.circularworkout.R
-import cz.muni.fi.circularworkout.data.MuscleGroup
 
-class AddExerciseDialogFragment(private val onItemPicked: (MuscleGroup) -> Unit) : DialogFragment() {
-
-    private val muscleGroups: Array<MuscleGroup> = MuscleGroup.values()
-
-    private fun getMuscleGroupTexts() = muscleGroups.map{ it.text }.toTypedArray()
+class AddExerciseDialogFragment(private val muscleGroups: List<String>,
+                                private val onItemPicked: (String) -> Unit) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it, R.style.AlertDialogCustom)
             builder
                 .setTitle("Choose muscle group")
-                .setItems(getMuscleGroupTexts()) { _, which ->
-                    println("Picked " + muscleGroups[which].text)
+                .setItems(muscleGroups.toTypedArray()) { _, which ->
+                    println("Picked " + muscleGroups[which])
                     onItemPicked(muscleGroups[which])
                 }
             builder.create()

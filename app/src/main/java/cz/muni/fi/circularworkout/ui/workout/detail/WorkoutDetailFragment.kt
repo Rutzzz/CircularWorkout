@@ -14,19 +14,17 @@ import androidx.navigation.fragment.findNavController
 import cz.muni.fi.circularworkout.R
 import cz.muni.fi.circularworkout.data.WorkoutDetail
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutDetailBinding
+import cz.muni.fi.circularworkout.repository.WorkoutRepository
+import java.lang.IllegalStateException
 
 
 class WorkoutDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentWorkoutDetailBinding
 
-    private fun getMockedInstance(name: String) = WorkoutDetail(
-        name = name,
-        exerciseNames = listOf("Pull up", "Squat", "Dead lift", "Chin up"),
-        exerciseTime = 30,
-        restTime = 20,
-        rounds = 3
-    )
+    private val workoutRepository: WorkoutRepository by lazy {
+        WorkoutRepository(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +40,8 @@ class WorkoutDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val workout = getMockedInstance(WorkoutDetailFragmentArgs.fromBundle(requireArguments()).name)
+        val workout = workoutRepository.getDetailByName(WorkoutDetailFragmentArgs.fromBundle(requireArguments()).name)
+            ?: throw IllegalStateException("Workout with that name doesn't exist")
         binding.toolbar.title = workout.name
         buildExerciseLayout(workout.exerciseNames)
         binding.roundsTextView.text = workout.rounds.toString()

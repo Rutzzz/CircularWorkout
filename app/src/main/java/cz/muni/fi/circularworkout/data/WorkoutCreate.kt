@@ -1,10 +1,9 @@
 package cz.muni.fi.circularworkout.data
 
-data class WorkoutDetail(
-    val id: Long,
+data class WorkoutCreate(
     val name: String,
-    val exerciseNames: List<String>,
+    val exercises: List<String>,
     val exerciseTime: Int,
     val restTime: Int,
-    val rounds: Int,
+    val rounds: Int
 )
