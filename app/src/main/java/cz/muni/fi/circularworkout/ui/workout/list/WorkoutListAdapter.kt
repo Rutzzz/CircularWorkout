@@ -25,15 +25,6 @@ class WorkoutListAdapter(private val workoutRepository: WorkoutRepository, val o
         holder.bind(workouts[position], onItemClick)
     }
 
-    fun removeItem(position: Int) {
-        listItems.removeAt(position)
-        notifyItemRemoved(position)
-    }
-
-    fun submitList(newListItems: List<WorkoutListItem>) {
-        listItems = newListItems.toMutableList()
-        notifyDataSetChanged()
-    }
 
     override fun getItemCount(): Int = workouts.size
 }

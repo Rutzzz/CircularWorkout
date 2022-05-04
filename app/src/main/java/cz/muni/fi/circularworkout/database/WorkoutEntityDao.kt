@@ -7,7 +7,6 @@ import androidx.room.Query
 
 @Dao
 interface WorkoutEntityDao {
-    annotation class Dao
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(workout: WorkoutEntity)

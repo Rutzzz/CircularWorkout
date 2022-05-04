@@ -51,7 +51,9 @@ class WorkoutDetailFragment : Fragment() {
         binding.restTimeTextView.text = workout.restTime.toString() + " s"
         binding.deleteButton.setOnClickListener {
             val dialog = DeleteWorkoutDetailFragmentDialog {
-                workoutRepository.delete(id.toLong())
+                workoutRepository.delete(workout.id)
+                findNavController().navigateUp()
+                Toast.makeText(requireContext(), "Your workout successfully deleted", Toast.LENGTH_SHORT).show()
             }
             activity?.supportFragmentManager?.let {
                 dialog.show(it, "delete")
