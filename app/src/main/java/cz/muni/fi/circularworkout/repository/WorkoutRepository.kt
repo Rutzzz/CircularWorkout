@@ -38,6 +38,8 @@ class WorkoutRepository(
 
     fun create(workout: WorkoutCreate) = workoutDao.save(workout.toWorkoutEntity())
 
+    fun delete(id: Long) = workoutDao.deleteById(id)
+
     fun workoutWithNameExists(name: String) : Boolean = workoutDao.getByName(name) != null
 
 }
