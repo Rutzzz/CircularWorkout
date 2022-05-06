@@ -26,10 +26,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/settings_fragment"
-        android:name="cz.muni.fi.circularworkout.ui.settings.SettingsFragment"
-        tools:layout="@layout/fragment_settings"
-        android:label="SettingsFragment" >
+        android:id="@+id/exercises_fragment"
+        android:name="cz.muni.fi.circularworkout.ui.exercises.ExercisesFragment"
+        tools:layout="@layout/fragment_exercises"
+        android:label="ExercisesFragment" >
     </fragment>
 
     <fragment
