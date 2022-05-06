@@ -7,7 +7,10 @@ import cz.muni.fi.circularworkout.data.WorkoutListItem
 import cz.muni.fi.circularworkout.databinding.ItemWorkoutListBinding
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
 
-class WorkoutListAdapter(private val workoutRepository: WorkoutRepository, val onItemClick: (WorkoutListItem) -> Unit) : RecyclerView.Adapter<WorkoutListViewHolder>() {
+class WorkoutListAdapter(
+    private val workoutRepository: WorkoutRepository,
+    private val onStartClick: (name: String) -> Unit,
+    private val onItemClick: (WorkoutListItem) -> Unit) : RecyclerView.Adapter<WorkoutListViewHolder>() {
 
     private var listItems: MutableList<WorkoutListItem> = mutableListOf()
     lateinit var onFavoriteClick: (WorkoutListItem, Int) -> Unit
@@ -18,7 +21,7 @@ class WorkoutListAdapter(private val workoutRepository: WorkoutRepository, val o
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkoutListViewHolder {
         val binding = ItemWorkoutListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return WorkoutListViewHolder(binding)
+        return WorkoutListViewHolder(onStartClick, binding)
     }
 
     override fun onBindViewHolder(holder: WorkoutListViewHolder, position: Int) {
