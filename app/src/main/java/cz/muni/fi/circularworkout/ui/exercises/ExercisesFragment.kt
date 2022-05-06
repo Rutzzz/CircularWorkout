@@ -55,6 +55,9 @@ class ExercisesFragment : Fragment(), NavigationView.OnNavigationItemSelectedLis
 
     private fun selectExercise(exercise: Exercise) {
         binding.toolbar.title = exercise.name
+        binding.exercisePrimaryValue.text = exercise.primary
+        binding.exerciseSecondaryValue.text = exercise.secondary
+        binding.exerciseDescription.text = exercise.description
         binding.drawer.close()
     }
 

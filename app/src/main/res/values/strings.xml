@@ -20,6 +20,8 @@
 
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="primary">Primary:</string>
+    <string name="secondary">Secondary:</string>
 
     <string-array name="exercises">
         <item>Pull up</item>

@@ -11,7 +11,8 @@
     tools:context=".ui.exercises.ExercisesFragment">
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -21,6 +22,76 @@
             app:titleTextColor="@color/white"
             app:navigationIcon="@drawable/ic_bars_solid"
             />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="40dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/upper_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="40dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <TextView
+                    android:id="@+id/exercise_primary_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/primary"
+                    android:textSize="20sp"
+                    android:textAlignment="textEnd"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/exercise_primary_value"/>
+                <TextView
+                    android:id="@+id/exercise_primary_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="Chest"
+                    android:textSize="20sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/exercise_primary_label"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/exercise_secondary_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/secondary"
+                    android:textSize="20sp"
+                    android:textAlignment="textEnd"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/exercise_primary_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/exercise_secondary_value"/>
+                <TextView
+                    android:id="@+id/exercise_secondary_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="Abs,arms"
+                    android:textSize="20sp"
+                    app:layout_constraintTop_toBottomOf="@id/exercise_primary_value"
+                    app:layout_constraintStart_toEndOf="@+id/exercise_secondary_label"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/exercise_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Basic description of the exercise"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/upper_info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
