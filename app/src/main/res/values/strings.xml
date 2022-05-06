@@ -18,6 +18,9 @@
     <string name="start">START</string>
     <string name="delete">Delete</string>
 
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
     <string-array name="exercises">
         <item>Pull up</item>
         <item>Push up</item>
