@@ -52,6 +52,10 @@
             android:name="name"
             app:argType="string" />
 
+        <action
+            android:id="@+id/action_detailFragment_to_playFragment"
+            app:destination="@id/workout_play_fragment"/>
+
     </fragment>
 
     <fragment

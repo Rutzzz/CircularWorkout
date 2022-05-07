@@ -96,9 +96,9 @@ class WorkoutPlayFragment : Fragment() {
     }
 
     private fun changeBackgroundColor(color: Int) {
-        val c = ContextCompat.getColor(requireContext(), color)
+        val x = ContextCompat.getColor(requireContext(), color)
         val csl = ContextCompat.getColorStateList(requireContext(), color)
-        activity?.window?.statusBarColor = c
+        activity?.window?.statusBarColor = x
         binding.root.backgroundTintList = csl
         binding.workoutName.backgroundTintList = csl
         binding.workoutRound.backgroundTintList = csl

@@ -59,6 +59,10 @@ class WorkoutDetailFragment : Fragment() {
                 dialog.show(it, "delete")
             }
         }
+        binding.startWorkoutButton.setOnClickListener {
+            findNavController().navigate(WorkoutDetailFragmentDirections
+                .actionDetailFragmentToPlayFragment(workout.name))
+        }
     }
 
     private fun buildExerciseLayout(exerciseNames: List<String>) =
