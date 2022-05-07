@@ -32,10 +32,17 @@ class WorkoutListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = WorkoutListAdapter(workoutRepository = workoutRepository, onItemClick = {
-            findNavController()
-                .navigate(WorkoutListFragmentDirections.actionListFragmentToDetailFragment(it.name))
-        })
+        val adapter = WorkoutListAdapter(
+            workoutRepository = workoutRepository,
+            onStartClick =  {
+                findNavController()
+                    .navigate(WorkoutListFragmentDirections.actionListFragmentToPlayFragment(it))
+            },
+            onItemClick = {
+                findNavController()
+                    .navigate(WorkoutListFragmentDirections.actionListFragmentToDetailFragment(it.name))
+            }
+        )
         binding.workoutsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.workoutsRecyclerView.adapter = adapter
     }
