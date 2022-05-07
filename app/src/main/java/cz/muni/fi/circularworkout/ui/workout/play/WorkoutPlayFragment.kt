@@ -2,20 +2,18 @@ package cz.muni.fi.circularworkout.ui.workout.play
 
 import android.os.Bundle
 import android.os.CountDownTimer
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.view.isVisible
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import cz.muni.fi.circularworkout.R
 import cz.muni.fi.circularworkout.data.WorkoutInterval
+import cz.muni.fi.circularworkout.data.WorkoutIntervalType
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutPlayBinding
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
-import cz.muni.fi.circularworkout.util.getTotalDuration
 import cz.muni.fi.circularworkout.util.workoutToIntervals
-import java.lang.IllegalStateException
 
 class WorkoutPlayFragment : Fragment() {
 
@@ -72,7 +70,7 @@ class WorkoutPlayFragment : Fragment() {
             override fun onFinish() {
                 binding.timerNumber.text = "0"
                 currentIntervalIndex += 1
-                if (currentIntervalIndex != intervals.lastIndex) {
+                if (currentIntervalIndex != intervals.lastIndex + 1) {
                     currentTimeLeft = intervals[currentIntervalIndex].duration.toLong() * 1000 + 1000
                     startTimer()
                 } else {
@@ -87,12 +85,38 @@ class WorkoutPlayFragment : Fragment() {
         binding.workoutExerciseNumber.text =
             "Exercise ${intervals[currentIntervalIndex].exerciseOrder}/${workout.exerciseNames.size}"
         binding.playPauseButton.setImageResource(R.drawable.ic_pause_solid)
+        changeBackgroundColor(intervalTypeToBackgroundColor(intervals[currentIntervalIndex].type))
     }
 
     private fun finishExercise() {
+        changeBackgroundColor(R.color.blue_bg)
         binding.exerciseInfo.text = "Completed!"
         binding.playPauseButton.setImageResource(R.drawable.ic_xmark_solid)
         binding.playPauseButton.setOnClickListener { findNavController().navigateUp() }
+    }
+
+    private fun changeBackgroundColor(color: Int) {
+        val c = ContextCompat.getColor(requireContext(), color)
+        val csl = ContextCompat.getColorStateList(requireContext(), color)
+        activity?.window?.statusBarColor = c
+        binding.root.backgroundTintList = csl
+        binding.workoutName.backgroundTintList = csl
+        binding.workoutRound.backgroundTintList = csl
+        binding.workoutExerciseNumber.backgroundTintList = csl
+        binding.exerciseInfo.backgroundTintList = csl
+        binding.timerNumber.backgroundTintList = csl
+        binding.playPauseButton.backgroundTintList = csl
+    }
+
+    private fun intervalTypeToBackgroundColor(intervalType: WorkoutIntervalType) = when(intervalType) {
+        WorkoutIntervalType.WORKOUT -> R.color.pink_500
+        WorkoutIntervalType.REST -> R.color.green_500
+        WorkoutIntervalType.PREPARATION -> R.color.blue_bg
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_bg)
     }
 
 }
