@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.scaleMatrix
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import cz.muni.fi.circularworkout.R
@@ -15,7 +14,6 @@ import cz.muni.fi.circularworkout.data.WorkoutIntervalType
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutPlayBinding
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
 import cz.muni.fi.circularworkout.util.workoutToIntervals
-import kotlinx.coroutines.delay
 
 class WorkoutPlayFragment : Fragment() {
 
@@ -79,6 +77,8 @@ class WorkoutPlayFragment : Fragment() {
                         scaleY(1.0f)
                     }.start()
                 }.start()
+                val progress = timeLeftToProgress(seconds.toInt(), intervals[currentIntervalIndex].duration)
+                binding.timerProgressBar.progress = progress
             }
 
             override fun onFinish() {
@@ -127,6 +127,10 @@ class WorkoutPlayFragment : Fragment() {
         WorkoutIntervalType.REST -> R.color.green_500
         WorkoutIntervalType.PREPARATION -> R.color.blue_bg
     }
+
+    private fun timeLeftToProgress(timeLeft: Int, duration: Int): Int =
+        ((1f - timeLeft.toFloat() / duration.toFloat()) * 100f).toInt()
+
 
     override fun onDestroy() {
         super.onDestroy()

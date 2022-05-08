@@ -64,7 +64,8 @@
         android:id="@+id/timer_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="40dp"
+        android:paddingVertical="30dp"
+        android:layout_marginBottom="80dp"
         android:textSize="64sp"
         android:textAlignment="center"
         android:backgroundTint="@color/pink_500"
@@ -73,11 +74,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="14"/>
 
+    <ProgressBar
+        android:id="@+id/timer_progress_bar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:background="@drawable/circle_shape"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        app:layout_constraintStart_toStartOf="@id/timer_number"
+        app:layout_constraintEnd_toEndOf="@id/timer_number"
+        app:layout_constraintBottom_toBottomOf="@id/timer_number"
+        app:layout_constraintTop_toTopOf="@id/timer_number"
+        tools:progress="65" />
+
     <ImageView
         android:id="@+id/play_pause_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:src="@drawable/ic_play_solid"
         app:tint="@color/white"
         android:backgroundTint="@color/pink_500"
