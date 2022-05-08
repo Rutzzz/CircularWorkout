@@ -4,28 +4,28 @@
     "name": "Push-Ups",
     "primary": "chest",
     "secondary": "upper back",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a odio sagittis, suscipit leo sed, mollis lorem. Nam quam nunc, ultricies a urna ut, volutpat pharetra lectus. Proin congue porta sem. Maecenas cursus nisi vitae enim sollicitudin, eu maximus tellus viverra. Donec varius est sed aliquam egestas. Etiam posuere, nunc id vulputate ultricies, magna enim elementum velit, id rhoncus magna leo vel risus. Donec lacinia mauris sit amet mauris lobortis semper. Phasellus tincidunt felis non enim imperdiet commodo. Pellentesque eget neque iaculis massa sollicitudin sollicitudin sit amet a dui."
+    "description": "Your hands are more than shoulder width apart, not too much in front or too far back. When you move down there is an inhale, when you move up there is an exhale."
   },
   {
   "category": "CHEST",
   "name": "Triceps- Push-Ups",
   "primary": "triceps",
-  "secondary": "upper Back",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a odio sagittis, suscipit leo sed, mollis lorem. Nam quam nunc, ultricies a urna ut, volutpat pharetra lectus. Proin congue porta sem. Maecenas cursus nisi vitae enim sollicitudin, eu maximus tellus viverra. Donec varius est sed aliquam egestas. Etiam posuere, nunc id vulputate ultricies, magna enim elementum velit, id rhoncus magna leo vel risus. Donec lacinia mauris sit amet mauris lobortis semper. Phasellus tincidunt felis non enim imperdiet commodo. Pellentesque eget neque iaculis massa sollicitudin sollicitudin sit amet a dui."
+  "secondary": "upper Back, chest",
+  "description": "Your hands are in the middle under your chest, not too much in front or too much behind. When you move down, you inhale, when you move up, you exhale."
   },
   {
     "category": "CHEST",
     "name": "Incline Push-Ups",
     "primary": "upper chest",
     "secondary": "triceps",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a odio sagittis, suscipit leo sed, mollis lorem. Nam quam nunc, ultricies a urna ut, volutpat pharetra lectus. Proin congue porta sem. Maecenas cursus nisi vitae enim sollicitudin, eu maximus tellus viverra. Donec varius est sed aliquam egestas. Etiam posuere, nunc id vulputate ultricies, magna enim elementum velit, id rhoncus magna leo vel risus. Donec lacinia mauris sit amet mauris lobortis semper. Phasellus tincidunt felis non enim imperdiet commodo. Pellentesque eget neque iaculis massa sollicitudin sollicitudin sit amet a dui."
+    "description": "Your hands should be placed on a raised surface, not too far in front or too far behind. When moving down, inhale, when moving up, exhale."
   },
   {
     "category": "CHEST",
     "name": "Decline Push-Ups",
     "primary": "lower chest",
     "secondary": "triceps",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a odio sagittis, suscipit leo sed, mollis lorem. Nam quam nunc, ultricies a urna ut, volutpat pharetra lectus. Proin congue porta sem. Maecenas cursus nisi vitae enim sollicitudin, eu maximus tellus viverra. Donec varius est sed aliquam egestas. Etiam posuere, nunc id vulputate ultricies, magna enim elementum velit, id rhoncus magna leo vel risus. Donec lacinia mauris sit amet mauris lobortis semper. Phasellus tincidunt felis non enim imperdiet commodo. Pellentesque eget neque iaculis massa sollicitudin sollicitudin sit amet a dui."
+    "description": "Your hands should be placed on a lowered surface, not too far in front or too far behind. When moving down, inhale, when moving up, exhale."
   },
 
 
@@ -34,14 +34,14 @@
     "name": "Pull-Up",
     "primary": "upper back",
     "secondary": "biceps, shoulders",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a odio sagittis, suscipit leo sed, mollis lorem. Nam quam nunc, ultricies a urna ut, volutpat pharetra lectus. Proin congue porta sem. Maecenas cursus nisi vitae enim sollicitudin, eu maximus tellus viverra. Donec varius est sed aliquam egestas. Etiam posuere, nunc id vulputate ultricies, magna enim elementum velit, id rhoncus magna leo vel risus. Donec lacinia mauris sit amet mauris lobortis semper. Phasellus tincidunt felis non enim imperdiet commodo. Pellentesque eget neque iaculis massa sollicitudin sollicitudin sit amet a dui."
+    "description": ""
   },
   {
     "category": "BACK",
     "name": "Biceps Pull-Ups",
     "primary": "upper back, biceps",
     "secondary": "shoulders",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a odio sagittis, suscipit leo sed, mollis lorem. Nam quam nunc, ultricies a urna ut, volutpat pharetra lectus. Proin congue porta sem. Maecenas cursus nisi vitae enim sollicitudin, eu maximus tellus viverra. Donec varius est sed aliquam egestas. Etiam posuere, nunc id vulputate ultricies, magna enim elementum velit, id rhoncus magna leo vel risus. Donec lacinia mauris sit amet mauris lobortis semper. Phasellus tincidunt felis non enim imperdiet commodo. Pellentesque eget neque iaculis massa sollicitudin sollicitudin sit amet a dui."
+    "description": ""
   },
 
 
@@ -50,28 +50,28 @@
     "name": "Squats",
     "primary": "legs",
     "secondary": "harmstrings, butt, lower back",
-    "description": "you must straddle shoulder width apart and then go into a squat so that you don't lift your heels off the ground"
+    "description": "You must straddle shoulder width apart and then go into a squat so that you don't lift your heels off the ground."
   },
   {
     "category": "LEGS",
     "name": "Sumo squats",
     "primary": "legs",
     "secondary": "lower back",
-    "description": "you must straddle a width greater than the width of your shoulders and then perform a squat while keeping your heels on the ground"
+    "description": "You must straddle a width greater than the width of your shoulders and then perform a squat while keeping your heels on the ground."
   },
   {
     "category": "LEGS",
     "name": "High Knees",
     "primary": "legs",
     "secondary": "butt",
-    "description": ""
+    "description": "Stand with your feet hip-width apart. Lift up your left knee to your chest then Switch to lift your right knee to your chest. Continue the movement, alternating legs and moving at a sprinting or running pace."
   },
   {
     "category": "LEGS",
     "name": "Jump Squats",
     "primary": "legs",
     "secondary": "harmstrings, butt, lower back",
-    "description": " "
+    "description": "Stand again on more than your shoulder width, go into a squat and jump dynamically while moving up."
   },
 
 
@@ -80,27 +80,27 @@
     "name": "Russian Twist",
     "primary": "abs",
     "secondary": "obliques, core",
-    "description": "sit upright on the floor with legs slightly bent and turn the upper torso to the left and then to the right "
+    "description": "Sit upright on the floor with legs slightly bent and turn the upper torso to the left and then to the right. "
   },
   {
     "category": "ABS",
     "name": "Crunches",
     "primary": "abs",
     "secondary": "core",
-    "description": "the crunches begins lying on your back with your legs bent at the knees. The torso bent so that the shoulders are close to the pelvis"
+    "description": "The crunches begins lying on your back with your legs bent at the knees. The torso bent so that the shoulders are close to the pelvis."
   },
   {
     "category": "ABS",
     "name": "Scizzors",
     "primary": "abs",
     "secondary": "core",
-    "description": "scissors -lying on your back, raising both legs off of the ground, then criss-crossing one over the other"
+    "description": "Scissors -lying on your back, raising both legs off of the ground, then criss-crossing one over the other."
   },
   {
     "category": "ABS",
     "name": "Bicycle Crunches",
     "primary": "abs",
     "secondary": "upper abs, core",
-    "description": "you lie on your back and use your legs to simulate cycling"
+    "description": "You lie on your back and use your legs to simulate cycling."
   }
 ]
