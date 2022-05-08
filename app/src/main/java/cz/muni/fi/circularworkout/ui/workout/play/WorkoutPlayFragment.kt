@@ -72,9 +72,9 @@ class WorkoutPlayFragment : Fragment() {
                 currentIntervalIndex += 1
                 if (currentIntervalIndex != intervals.lastIndex + 1) {
                     currentTimeLeft = intervals[currentIntervalIndex].duration.toLong() * 1000 + 1000
-                    startTimer()
+                    if (isAdded) startTimer()
                 } else {
-                    finishExercise()
+                    if (isAdded) finishExercise()
                 }
             }
         }.start()
