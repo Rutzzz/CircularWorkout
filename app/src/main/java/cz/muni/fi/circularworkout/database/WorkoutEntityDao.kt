@@ -11,8 +11,11 @@ interface WorkoutEntityDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(workout: WorkoutEntity)
 
-    @Query("DELETE FROM WorkoutEntity WHERE id = :id")
+    @Query("UPDATE WorkoutEntity SET isSaved = 0 WHERE id = :id")
     fun deleteById(id: Long)
+
+    @Query("SELECT * FROM WorkoutEntity WHERE isSaved = 1")
+    fun getAllSaved(): List<WorkoutEntity>
 
     @Query("SELECT * FROM WorkoutEntity")
     fun getAll(): List<WorkoutEntity>

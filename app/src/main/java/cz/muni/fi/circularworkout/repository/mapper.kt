@@ -23,7 +23,8 @@ fun WorkoutCreate.toWorkoutEntity() : WorkoutEntity = WorkoutEntity(
     exercises = this.exercises,
     exerciseTime = this.exerciseTime,
     restTime = this.restTime,
-    rounds = this.rounds
+    rounds = this.rounds,
+    isSaved = true
 )
 
 fun WorkoutEntity.toWorkoutDetail() : WorkoutDetail = WorkoutDetail(

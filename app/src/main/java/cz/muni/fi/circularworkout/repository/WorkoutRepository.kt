@@ -28,7 +28,7 @@ class WorkoutRepository(
         }
 
     fun getAll() : List<WorkoutListItem> =
-        workoutDao.getAll()
+        workoutDao.getAllSaved()
             .map {
                 it.toWorkoutListItem()
             }
