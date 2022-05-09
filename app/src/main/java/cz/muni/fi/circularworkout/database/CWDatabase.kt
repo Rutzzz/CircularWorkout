@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 @Database(
-    entities = [WorkoutEntity::class],
+    entities = [WorkoutEntity::class, WorkoutHistoryEntity::class],
     version = 1
 )
 @TypeConverters(Convertets::class)
@@ -23,5 +23,5 @@ abstract class CWDatabase : RoomDatabase() {
     }
 
     abstract fun workoutEntityDao(): WorkoutEntityDao
-
+    abstract fun workoutHistoryEntityDao(): WorkoutHistoryEntityDao
 }
