@@ -7,21 +7,24 @@
     tools:context=".ui.statistics.StatisticsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_materialCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="8dp"
-        android:paddingBottom="16dp">
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/history_constrain">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/total_hours_MaterialCard">
-
+            android:layout_height="wrap_content"
+            android:id="@+id/total_hours_MaterialCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/total_hours_textView"
@@ -55,12 +58,13 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/total_workouts_MaterialCard"
             app:layout_constraintTop_toBottomOf="@id/total_hours_MaterialCard">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/total_workouts_textView"
@@ -88,6 +92,29 @@
 
                 </TextView>
             </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/history_MaterialCard"
+            app:layout_constraintTop_toBottomOf="@+id/total_workouts_MaterialCard"
+            >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/workouts_history_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total_hours_MaterialCard"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="NotSibling"
+                tools:listitem="@layout/item_history_list" />
 
         </com.google.android.material.card.MaterialCardView>
 
