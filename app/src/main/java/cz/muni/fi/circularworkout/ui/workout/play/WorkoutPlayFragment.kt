@@ -161,6 +161,7 @@ class WorkoutPlayFragment : Fragment() {
         binding.exerciseInfo.backgroundTintList = csl
         binding.timerNumber.backgroundTintList = csl
         binding.playPauseButton.backgroundTintList = csl
+        binding.timerProgressBar.progressTintList = csl
     }
 
     private fun intervalTypeToBackgroundColor(intervalType: WorkoutIntervalType) = when(intervalType) {
