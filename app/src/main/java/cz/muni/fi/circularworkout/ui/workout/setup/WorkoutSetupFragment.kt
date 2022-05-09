@@ -53,10 +53,13 @@ class WorkoutSetupFragment : Fragment() {
             android.R.layout.simple_spinner_item
         )
         binding.pause.optionsGroupTextView.setText("Pause")
+        pauseAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.pause.exerciseSpinner.adapter = pauseAdapter
         binding.rounds.optionsGroupTextView.setText("Rounds")
+        roundsAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.rounds.exerciseSpinner.adapter = roundsAdapter
         binding.exerciseTime.optionsGroupTextView.setText("Exercise time")
+        exerciseAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.exerciseTime.exerciseSpinner.adapter = exerciseAdapter
         return binding.root
 
