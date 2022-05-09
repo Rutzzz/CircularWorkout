@@ -36,7 +36,9 @@ class WorkoutRepository(
     fun getDetailByName(name: String) =
         workoutDao.getByName(name)?.toWorkoutDetail()
 
-    fun create(workout: WorkoutCreate) = workoutDao.save(workout.toWorkoutEntity())
+    fun save(workout: WorkoutCreate) = workoutDao.save(workout.toWorkoutEntity(isSaved = true))
+
+    fun store(workout: WorkoutCreate) = workoutDao.save(workout.toWorkoutEntity(isSaved = false))
 
     fun delete(id: Long) = workoutDao.deleteById(id)
 

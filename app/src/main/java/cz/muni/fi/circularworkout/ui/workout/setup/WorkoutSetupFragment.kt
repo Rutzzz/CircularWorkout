@@ -17,6 +17,8 @@ import cz.muni.fi.circularworkout.databinding.FragmentWorkoutSetupBinding
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
 import cz.muni.fi.circularworkout.util.getExercises
 import cz.muni.fi.circularworkout.util.getMuscleGroups
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class WorkoutSetupFragment : Fragment() {
@@ -135,7 +137,7 @@ class WorkoutSetupFragment : Fragment() {
                         restTime = binding.pause.exerciseSpinner.selectedItem.toString().toInt(),
                         rounds = binding.rounds.exerciseSpinner.selectedItem.toString().toInt()
                     )
-                    workoutRepository.create(newWorkout)
+                    workoutRepository.save(newWorkout)
                     Toast.makeText(requireContext(), "Workout successfully saved", Toast.LENGTH_SHORT).show()
                     findNavController().navigateUp()
                 } else {
@@ -146,6 +148,21 @@ class WorkoutSetupFragment : Fragment() {
             activity?.supportFragmentManager?.let {
                 dialog.show(it, "save")
             }
+        }
+
+        binding.startWorkoutButton.setOnClickListener {
+            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+            val name = "Workout: ${sdf.format(Date())}"
+            val newWorkout = WorkoutCreate(
+                name = name,
+                exercises = adapter.getSelectedExercises(),
+                exerciseTime = binding.exerciseTime.exerciseSpinner.selectedItem.toString().toInt(),
+                restTime = binding.pause.exerciseSpinner.selectedItem.toString().toInt(),
+                rounds = binding.rounds.exerciseSpinner.selectedItem.toString().toInt()
+            )
+            workoutRepository.store(newWorkout)
+            findNavController()
+                .navigate(WorkoutSetupFragmentDirections.actionSetupFragmentToPlayFragment(name))
         }
     }
 }

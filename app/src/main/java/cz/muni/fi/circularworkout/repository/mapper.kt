@@ -17,14 +17,14 @@ fun WorkoutEntity.toWorkoutListItem() : WorkoutListItem = WorkoutListItem(
     duration = getDuration(this)
 )
 
-fun WorkoutCreate.toWorkoutEntity() : WorkoutEntity = WorkoutEntity(
+fun WorkoutCreate.toWorkoutEntity(isSaved: Boolean) : WorkoutEntity = WorkoutEntity(
     id = 0,
     name = this.name,
     exercises = this.exercises,
     exerciseTime = this.exerciseTime,
     restTime = this.restTime,
     rounds = this.rounds,
-    isSaved = true
+    isSaved = isSaved
 )
 
 fun WorkoutEntity.toWorkoutDetail() : WorkoutDetail = WorkoutDetail(
@@ -33,5 +33,6 @@ fun WorkoutEntity.toWorkoutDetail() : WorkoutDetail = WorkoutDetail(
     exerciseNames = this.exercises,
     exerciseTime = this.exerciseTime,
     restTime = this.restTime,
-    rounds = this.rounds
+    rounds = this.rounds,
+    isSaved = this.isSaved
 )
