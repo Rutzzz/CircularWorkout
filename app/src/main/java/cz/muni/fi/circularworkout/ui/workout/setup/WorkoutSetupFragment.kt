@@ -70,7 +70,11 @@ class WorkoutSetupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ExerciseListAdapter(requireContext())
+        val adapter = ExerciseListAdapter(requireContext()) { count ->
+            binding.saveButton.isEnabled = count != 0
+            binding.startWorkoutButton.isEnabled = count != 0
+            binding.exerciseAddButton.isEnabled = count != 6
+        }
         val simpleItemTouchCallback =
             object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN,
                 ItemTouchHelper.START or ItemTouchHelper.END) {
