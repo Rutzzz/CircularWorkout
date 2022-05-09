@@ -5,9 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.fi.circularworkout.databinding.FragmentStatisticsBinding
 import cz.muni.fi.circularworkout.repository.WorkoutHistoryRepository
-import cz.muni.fi.circularworkout.repository.WorkoutRepository
+
 
 class StatisticsFragment : Fragment() {
 
@@ -23,13 +24,15 @@ class StatisticsFragment : Fragment() {
     ): View {
         binding = FragmentStatisticsBinding.inflate(layoutInflater, container, false)
 
-        val workoutHistory = workoutHistoryRepository.getAll()
-        var total = 0
-        for (historyItem in workoutHistory){
-            total += historyItem.duration.minute;
-        }
 
-
+        val adapter = HistoryListAdapter(
+            workoutHistoryRepository = workoutHistoryRepository
+        )
+        binding.workoutsHistoryView.layoutManager = LinearLayoutManager(requireContext())
+        binding.workoutsHistoryView.adapter = adapter
+        val statistics = workoutHistoryRepository.getStatistics()
+        binding.totalHours.text = statistics.minutes.toString()
+        binding.totalWorkouts.text = statistics.totalWorkouts.toString()
         return binding.root
     }
 

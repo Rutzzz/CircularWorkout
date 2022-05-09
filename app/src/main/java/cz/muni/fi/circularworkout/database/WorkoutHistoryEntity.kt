@@ -1,6 +1,6 @@
 package cz.muni.fi.circularworkout.database
 
-import androidx.room.Embedded
+
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
@@ -13,8 +13,9 @@ import androidx.room.PrimaryKey
         onDelete = CASCADE)))
 class WorkoutHistoryEntity(
     @PrimaryKey(autoGenerate = true)
-    val historyId: Long,
+    val id: Long,
     val workoutId: Long,
-    @Embedded
-    val workout : WorkoutEntity
-)
+
+) {
+
+}
