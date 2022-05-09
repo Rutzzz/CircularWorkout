@@ -129,8 +129,8 @@ class WorkoutSetupFragment : Fragment() {
                         rounds = binding.rounds.exerciseSpinner.selectedItem.toString().toInt()
                     )
                     workoutRepository.create(newWorkout)
-                    binding.saveButton.isEnabled = false
                     Toast.makeText(requireContext(), "Workout successfully saved", Toast.LENGTH_SHORT).show()
+                    findNavController().navigateUp()
                 } else {
                     Toast.makeText(requireContext(), "Workout with that name already exists", Toast.LENGTH_SHORT).show()
                 }
