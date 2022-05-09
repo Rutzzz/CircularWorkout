@@ -5,10 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = [WorkoutEntity::class],
-    version = 1
+    version = 2
 )
 @TypeConverters(Convertets::class)
 abstract class CWDatabase : RoomDatabase() {
@@ -19,6 +21,7 @@ abstract class CWDatabase : RoomDatabase() {
         fun create(context: Context): CWDatabase =
             Room.databaseBuilder(context, CWDatabase::class.java, NAME)
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
     }
 

@@ -50,7 +50,7 @@ class WorkoutPlayFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentWorkoutPlayBinding.inflate(layoutInflater, container, false)
-        binding.workoutName.text = workout.name
+        binding.workoutName.text = if (workout.isSaved) workout.name else ""
         binding.playPauseButton.setOnClickListener {
             if (timerRunning) {
                 pauseTimer()
