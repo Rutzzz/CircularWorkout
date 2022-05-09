@@ -1,5 +1,7 @@
 package cz.muni.fi.circularworkout.ui.workout.play
 
+import android.content.res.AssetFileDescriptor
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -35,6 +37,14 @@ class WorkoutPlayFragment : Fragment() {
     private var currentTimeLeft: Long = 0
     private var timerRunning: Boolean = false
 
+    private lateinit var zeroMediaPlayer: MediaPlayer
+    private lateinit var oneMediaPlayer: MediaPlayer
+    private lateinit var twoMediaPlayer: MediaPlayer
+    private lateinit var threeMediaPlayer: MediaPlayer
+    private lateinit var fiveMediaPlayer: MediaPlayer
+    private lateinit var tenMediaPlayer: MediaPlayer
+    private lateinit var completedMediaPlayer: MediaPlayer
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,8 +59,30 @@ class WorkoutPlayFragment : Fragment() {
             }
         }
         currentTimeLeft = intervals[0].duration.toLong() * 1000
+
+        zeroMediaPlayer = readAudioFile(R.raw.zero)
+        oneMediaPlayer = readAudioFile(R.raw.one)
+        twoMediaPlayer = readAudioFile(R.raw.two)
+        threeMediaPlayer = readAudioFile(R.raw.three)
+        fiveMediaPlayer = readAudioFile(R.raw.five)
+        tenMediaPlayer = readAudioFile(R.raw.ten)
+        completedMediaPlayer = readAudioFile(R.raw.completed)
+
         startTimer()
         return binding.root
+    }
+
+    private fun readAudioFile(resourceId: Int): MediaPlayer {
+        val afd: AssetFileDescriptor = resources.openRawResourceFd(resourceId)
+        val mp = MediaPlayer()
+        afd.use { a ->
+            mp.apply {
+                setDataSource(a.fileDescriptor, a.startOffset, a.length)
+                isLooping = false
+                prepare()
+            }
+        }
+        return mp
     }
 
     private fun pauseTimer() {
@@ -77,6 +109,14 @@ class WorkoutPlayFragment : Fragment() {
                         scaleY(1.0f)
                     }.start()
                 }.start()
+                when(seconds.toInt()) {
+                    0 -> zeroMediaPlayer.start()
+                    1 -> oneMediaPlayer.start()
+                    2 -> twoMediaPlayer.start()
+                    3 -> threeMediaPlayer.start()
+                    5 -> fiveMediaPlayer.start()
+                    10 -> tenMediaPlayer.start()
+                }
                 val progress = timeLeftToProgress(seconds.toInt(), intervals[currentIntervalIndex].duration)
                 binding.timerProgressBar.progress = progress
             }
@@ -104,6 +144,7 @@ class WorkoutPlayFragment : Fragment() {
 
     private fun finishExercise() {
         changeBackgroundColor(R.color.blue_bg)
+        completedMediaPlayer.start()
         binding.exerciseInfo.text = "Completed!"
         binding.playPauseButton.setImageResource(R.drawable.ic_xmark_solid)
         binding.playPauseButton.setOnClickListener { findNavController().navigateUp() }
