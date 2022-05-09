@@ -53,10 +53,13 @@ class WorkoutSetupFragment : Fragment() {
             android.R.layout.simple_spinner_item
         )
         binding.pause.optionsGroupTextView.setText("Pause")
+        pauseAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.pause.exerciseSpinner.adapter = pauseAdapter
         binding.rounds.optionsGroupTextView.setText("Rounds")
+        roundsAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.rounds.exerciseSpinner.adapter = roundsAdapter
         binding.exerciseTime.optionsGroupTextView.setText("Exercise time")
+        exerciseAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.exerciseTime.exerciseSpinner.adapter = exerciseAdapter
         return binding.root
 
@@ -67,7 +70,11 @@ class WorkoutSetupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ExerciseListAdapter(requireContext())
+        val adapter = ExerciseListAdapter(requireContext()) { count ->
+            binding.saveButton.isEnabled = count != 0
+            binding.startWorkoutButton.isEnabled = count != 0
+            binding.exerciseAddButton.isEnabled = count != 6
+        }
         val simpleItemTouchCallback =
             object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN,
                 ItemTouchHelper.START or ItemTouchHelper.END) {
@@ -129,8 +136,8 @@ class WorkoutSetupFragment : Fragment() {
                         rounds = binding.rounds.exerciseSpinner.selectedItem.toString().toInt()
                     )
                     workoutRepository.create(newWorkout)
-                    binding.saveButton.isEnabled = false
                     Toast.makeText(requireContext(), "Workout successfully saved", Toast.LENGTH_SHORT).show()
+                    findNavController().navigateUp()
                 } else {
                     Toast.makeText(requireContext(), "Workout with that name already exists", Toast.LENGTH_SHORT).show()
                 }

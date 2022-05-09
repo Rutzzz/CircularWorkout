@@ -11,7 +11,8 @@ import cz.muni.fi.circularworkout.util.getExercises
 import cz.muni.fi.circularworkout.util.getMuscleGroups
 import java.util.*
 
-class ExerciseListAdapter(private val context: Context) : RecyclerView.Adapter<ExerciseListViewHolder>() {
+class ExerciseListAdapter(private val context: Context,
+                          private val onItemCountChanged: (Int) -> Unit) : RecyclerView.Adapter<ExerciseListViewHolder>() {
 
     private val exercises: MutableList<ExerciseListItem> by lazy {
         getMuscleGroups(getExercises(context)).map {
@@ -46,11 +47,13 @@ class ExerciseListAdapter(private val context: Context) : RecyclerView.Adapter<E
     fun removeItem(pos: Int) {
         exercises.removeAt(pos)
         notifyItemRemoved(pos)
+        onItemCountChanged(itemCount)
     }
 
     fun addItem(muscleGroup: String) {
         exercises.add(ExerciseListItem(muscleGroup))
         notifyItemInserted(exercises.size - 1)
+        onItemCountChanged(itemCount)
     }
 
     fun getSelectedExercises() : List<String> = exercises.map {
