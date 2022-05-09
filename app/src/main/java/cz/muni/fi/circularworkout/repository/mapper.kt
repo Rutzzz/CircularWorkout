@@ -19,19 +19,14 @@ fun WorkoutEntity.toWorkoutListItem() : WorkoutListItem = WorkoutListItem(
     duration = getDuration(this)
 )
 
-fun WorkoutHistoryEntity.toWorkoutListItem() : WorkoutListItem = WorkoutListItem(
-    id = this.historyId,
-    name = this.workout.name,
-    duration = getDuration(this.workout)
-)
-
-fun WorkoutCreate.toWorkoutEntity() : WorkoutEntity = WorkoutEntity(
+fun WorkoutCreate.toWorkoutEntity(isSaved: Boolean) : WorkoutEntity = WorkoutEntity(
     id = 0,
     name = this.name,
     exercises = this.exercises,
     exerciseTime = this.exerciseTime,
     restTime = this.restTime,
-    rounds = this.rounds
+    rounds = this.rounds,
+    isSaved = isSaved
 )
 
 fun WorkoutListItem.toWorkoutEntity() : WorkoutEntity = WorkoutEntity(
@@ -40,7 +35,8 @@ fun WorkoutListItem.toWorkoutEntity() : WorkoutEntity = WorkoutEntity(
     exerciseTime = this.duration.minute,
     exercises = ArrayList(0),
     restTime = 0,
-    rounds = 0
+    rounds = 0,
+    isSaved = false
 )
 
 fun WorkoutEntity.toWorkoutDetail() : WorkoutDetail = WorkoutDetail(
@@ -49,13 +45,6 @@ fun WorkoutEntity.toWorkoutDetail() : WorkoutDetail = WorkoutDetail(
     exerciseNames = this.exercises,
     exerciseTime = this.exerciseTime,
     restTime = this.restTime,
-    rounds = this.rounds
-
+    rounds = this.rounds,
+    isSaved = this.isSaved
 )
-
-fun WorkoutHistory.toWorkoutHistoryEntity() : WorkoutHistoryEntity = WorkoutHistoryEntity(
-    historyId = 0,
-    workout = this.workout,
-    workoutId = this.workout.id
-)
-

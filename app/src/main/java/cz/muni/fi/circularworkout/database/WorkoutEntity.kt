@@ -11,5 +11,6 @@ class WorkoutEntity(
     val exercises: List<String>,
     val exerciseTime: Int,
     val restTime: Int,
-    val rounds: Int
+    val rounds: Int,
+    val isSaved: Boolean
 )

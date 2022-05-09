@@ -7,4 +7,5 @@ data class WorkoutDetail(
     val exerciseTime: Int,
     val restTime: Int,
     val rounds: Int,
+    val isSaved: Boolean
 )

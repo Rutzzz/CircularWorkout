@@ -46,9 +46,9 @@ class WorkoutDetailFragment : Fragment() {
             ?: throw IllegalStateException("Workout with that name doesn't exist")
         binding.toolbar.title = workout.name
         buildExerciseLayout(workout.exerciseNames)
-        binding.roundsTextView.text = workout.rounds.toString()
-        binding.exerciseTimeTextView.text = workout.exerciseTime.toString() + " s"
-        binding.restTimeTextView.text = workout.restTime.toString() + " s"
+        binding.roundsTextView.text = "Rounds: ${workout.rounds.toString()}"
+        binding.exerciseTimeTextView.text = "Exercise: ${workout.exerciseTime.toString()} s"
+        binding.restTimeTextView.text = "Rest: ${workout.restTime.toString()} s"
         binding.deleteButton.setOnClickListener {
             val dialog = DeleteWorkoutDetailFragmentDialog {
                 workoutRepository.delete(workout.id)

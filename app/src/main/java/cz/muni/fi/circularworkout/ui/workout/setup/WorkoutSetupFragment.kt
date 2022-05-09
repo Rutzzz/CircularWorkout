@@ -17,6 +17,8 @@ import cz.muni.fi.circularworkout.databinding.FragmentWorkoutSetupBinding
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
 import cz.muni.fi.circularworkout.util.getExercises
 import cz.muni.fi.circularworkout.util.getMuscleGroups
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class WorkoutSetupFragment : Fragment() {
@@ -53,10 +55,13 @@ class WorkoutSetupFragment : Fragment() {
             android.R.layout.simple_spinner_item
         )
         binding.pause.optionsGroupTextView.setText("Pause")
+        pauseAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.pause.exerciseSpinner.adapter = pauseAdapter
         binding.rounds.optionsGroupTextView.setText("Rounds")
+        roundsAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.rounds.exerciseSpinner.adapter = roundsAdapter
         binding.exerciseTime.optionsGroupTextView.setText("Exercise time")
+        exerciseAdapter.setDropDownViewResource(R.layout.simple_spinner_item)
         binding.exerciseTime.exerciseSpinner.adapter = exerciseAdapter
         return binding.root
 
@@ -67,7 +72,11 @@ class WorkoutSetupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ExerciseListAdapter(requireContext())
+        val adapter = ExerciseListAdapter(requireContext()) { count ->
+            binding.saveButton.isEnabled = count != 0
+            binding.startWorkoutButton.isEnabled = count != 0
+            binding.exerciseAddButton.isEnabled = count != 6
+        }
         val simpleItemTouchCallback =
             object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN,
                 ItemTouchHelper.START or ItemTouchHelper.END) {
@@ -128,9 +137,9 @@ class WorkoutSetupFragment : Fragment() {
                         restTime = binding.pause.exerciseSpinner.selectedItem.toString().toInt(),
                         rounds = binding.rounds.exerciseSpinner.selectedItem.toString().toInt()
                     )
-                    workoutRepository.create(newWorkout)
-                    binding.saveButton.isEnabled = false
+                    workoutRepository.save(newWorkout)
                     Toast.makeText(requireContext(), "Workout successfully saved", Toast.LENGTH_SHORT).show()
+                    findNavController().navigateUp()
                 } else {
                     Toast.makeText(requireContext(), "Workout with that name already exists", Toast.LENGTH_SHORT).show()
                 }
@@ -139,6 +148,21 @@ class WorkoutSetupFragment : Fragment() {
             activity?.supportFragmentManager?.let {
                 dialog.show(it, "save")
             }
+        }
+
+        binding.startWorkoutButton.setOnClickListener {
+            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+            val name = "Workout: ${sdf.format(Date())}"
+            val newWorkout = WorkoutCreate(
+                name = name,
+                exercises = adapter.getSelectedExercises(),
+                exerciseTime = binding.exerciseTime.exerciseSpinner.selectedItem.toString().toInt(),
+                restTime = binding.pause.exerciseSpinner.selectedItem.toString().toInt(),
+                rounds = binding.rounds.exerciseSpinner.selectedItem.toString().toInt()
+            )
+            workoutRepository.store(newWorkout)
+            findNavController()
+                .navigate(WorkoutSetupFragmentDirections.actionSetupFragmentToPlayFragment(name))
         }
     }
 }
