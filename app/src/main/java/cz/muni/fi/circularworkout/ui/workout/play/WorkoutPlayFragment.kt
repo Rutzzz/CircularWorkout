@@ -11,9 +11,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import cz.muni.fi.circularworkout.R
+import cz.muni.fi.circularworkout.data.WorkoutHistoryCreate
 import cz.muni.fi.circularworkout.data.WorkoutInterval
 import cz.muni.fi.circularworkout.data.WorkoutIntervalType
 import cz.muni.fi.circularworkout.databinding.FragmentWorkoutPlayBinding
+import cz.muni.fi.circularworkout.repository.WorkoutHistoryRepository
 import cz.muni.fi.circularworkout.repository.WorkoutRepository
 import cz.muni.fi.circularworkout.util.workoutToIntervals
 
@@ -23,6 +25,10 @@ class WorkoutPlayFragment : Fragment() {
 
     private val workoutRepository: WorkoutRepository by lazy {
         WorkoutRepository(requireContext())
+    }
+
+    private val workoutHistoryRepository: WorkoutHistoryRepository by lazy {
+        WorkoutHistoryRepository(requireContext())
     }
 
     private val workout by lazy {
@@ -69,6 +75,7 @@ class WorkoutPlayFragment : Fragment() {
         completedMediaPlayer = readAudioFile(R.raw.completed)
 
         startTimer()
+        workoutHistoryRepository.save(WorkoutHistoryCreate(workoutId = workout.id))
         return binding.root
     }
 
