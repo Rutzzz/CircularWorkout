@@ -184,6 +184,7 @@ class WorkoutPlayFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_bg)
+        timer.cancel()
     }
 
 }
