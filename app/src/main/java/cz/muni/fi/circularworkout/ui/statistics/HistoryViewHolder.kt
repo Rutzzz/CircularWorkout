@@ -11,7 +11,7 @@ class HistoryViewHolder(private val binding: ItemHistoryListBinding)
 
     fun bind(listItem: WorkoutHistory) {
         binding.workoutNameTextView.text = listItem.name
-        binding.workoutDateTextView.text = "${listItem.date.day}. ${listItem.date.month}."
+        binding.workoutDateTextView.text = listItem.date
 
 
 

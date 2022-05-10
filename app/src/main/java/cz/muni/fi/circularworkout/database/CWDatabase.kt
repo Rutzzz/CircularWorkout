@@ -9,7 +9,7 @@ import androidx.room.TypeConverters
 
 @Database(
     entities = [WorkoutEntity::class, WorkoutHistoryEntity::class],
-    version = 3
+    version = 4
 )
 @TypeConverters(Convertets::class)
 abstract class CWDatabase : RoomDatabase() {

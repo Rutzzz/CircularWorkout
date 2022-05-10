@@ -1,8 +1,7 @@
 package cz.muni.fi.circularworkout.repository
 
 import android.content.Context
-import cz.muni.fi.circularworkout.data.Statistics
-import cz.muni.fi.circularworkout.data.WorkoutHistory
+import cz.muni.fi.circularworkout.data.*
 import cz.muni.fi.circularworkout.database.CWDatabase
 import cz.muni.fi.circularworkout.database.WorkoutEntity
 import cz.muni.fi.circularworkout.database.WorkoutHistoryEntityDao
@@ -20,15 +19,19 @@ class WorkoutHistoryRepository(
             repeat(count) {
                 val item = WorkoutHistory(
                     name = it.toString(),
-                    date = Date()
+                    date = Date().toString()
                 )
                 add(item)
             }
         }
 
+    fun getAll() : List<WorkoutHistory> =
+        workoutHistoryDao.getAll()
+            .map {
+                it.toWorkoutHistory()
+            }
 
-
-
+    fun save(workout: WorkoutHistoryCreate) = workoutHistoryDao.save(workout.toWorkoutHistoryEntity(workoutId = workout.workoutId))
 
     fun delete(id: Long) = workoutHistoryDao.deleteById(id)
 

@@ -12,7 +12,7 @@ class HistoryListAdapter (
 ): RecyclerView.Adapter<HistoryViewHolder>() {
 
     private val history: List<WorkoutHistory> by lazy {
-        workoutHistoryRepository.getMockedData()
+        workoutHistoryRepository.getAll()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {

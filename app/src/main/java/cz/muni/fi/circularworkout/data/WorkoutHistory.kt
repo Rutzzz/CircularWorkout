@@ -5,5 +5,5 @@ import java.util.*
 
 data class WorkoutHistory(
     val name : String,
-    val date : Date,
+    val date : String,
 )
