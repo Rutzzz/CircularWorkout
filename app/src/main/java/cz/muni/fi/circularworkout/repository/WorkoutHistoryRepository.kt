@@ -25,17 +25,11 @@ class WorkoutHistoryRepository(
             }
         }
 
-    fun getAll() : List<WorkoutHistory> =
-        workoutHistoryDao.getAll()
-            .map {
-                it.toWorkoutHistory()
-            }
+    fun getAll() : List<WorkoutHistoryDetails> =
+        workoutHistoryDao.getAll();
 
     fun save(workout: WorkoutHistoryCreate) = workoutHistoryDao.save(workout.toWorkoutHistoryEntity(workoutId = workout.workoutId))
 
     fun delete(id: Long) = workoutHistoryDao.deleteById(id)
-
-    fun getStatistics()= Statistics(123,10)
-
 
 }
