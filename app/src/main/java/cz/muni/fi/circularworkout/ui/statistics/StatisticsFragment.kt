@@ -30,9 +30,14 @@ class StatisticsFragment : Fragment() {
         )
         binding.workoutsHistoryView.layoutManager = LinearLayoutManager(requireContext())
         binding.workoutsHistoryView.adapter = adapter
-        val statistics = workoutHistoryRepository.getStatistics()
-        binding.totalHours.text = statistics.minutes.toString()
-        binding.totalWorkouts.text = statistics.totalWorkouts.toString()
+        val history = adapter.history
+        val totalTime = history.map { workout -> workout.exerciseTime * workout.rounds * workout.exercises.size }.sum()
+        val hours = totalTime / 3600
+        val minutes = (totalTime % 3600) / 60
+        val seconds = totalTime % 60
+        binding.totalHours.text = "$hours:$minutes:$seconds"
+//        binding.totalHours.text = totalTime.toString()
+        binding.totalWorkouts.text = history.size.toString()
         return binding.root
     }
 
