@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 5,
-    "identityHash": "09e699d248567506a430b02c6a8ffd2e",
+    "identityHash": "ff964271e417ce4b190b2c1c5b1243c3",
     "entities": [
       {
         "tableName": "WorkoutEntity",
@@ -62,7 +62,7 @@
       },
       {
         "tableName": "WorkoutHistoryEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `workoutId` INTEGER NOT NULL, `date` INTEGER NOT NULL, `id` INTEGER NOT NULL, `name` TEXT NOT NULL, `exercises` TEXT NOT NULL, `exerciseTime` INTEGER NOT NULL, `restTime` INTEGER NOT NULL, `rounds` INTEGER NOT NULL, `isSaved` INTEGER NOT NULL, FOREIGN KEY(`workoutId`) REFERENCES `WorkoutEntity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `workoutId` INTEGER NOT NULL, `date` TEXT NOT NULL, FOREIGN KEY(`workoutId`) REFERENCES `WorkoutEntity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -79,49 +79,7 @@
           {
             "fieldPath": "date",
             "columnName": "date",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "workout.id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "workout.name",
-            "columnName": "name",
             "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "workout.exercises",
-            "columnName": "exercises",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "workout.exerciseTime",
-            "columnName": "exerciseTime",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "workout.restTime",
-            "columnName": "restTime",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "workout.rounds",
-            "columnName": "rounds",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "workout.isSaved",
-            "columnName": "isSaved",
-            "affinity": "INTEGER",
             "notNull": true
           }
         ],
@@ -150,7 +108,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '09e699d248567506a430b02c6a8ffd2e')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ff964271e417ce4b190b2c1c5b1243c3')"
     ]
   }
 }

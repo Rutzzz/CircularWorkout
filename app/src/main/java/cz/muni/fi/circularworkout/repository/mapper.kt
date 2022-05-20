@@ -4,6 +4,7 @@ import cz.muni.fi.circularworkout.data.*
 import cz.muni.fi.circularworkout.database.WorkoutEntity
 import cz.muni.fi.circularworkout.database.WorkoutHistoryEntity
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.*
 import kotlin.collections.ArrayList
@@ -49,14 +50,14 @@ fun WorkoutEntity.toWorkoutDetail() : WorkoutDetail = WorkoutDetail(
     isSaved = this.isSaved
 )
 
-
-fun WorkoutHistoryEntity.toWorkoutHistory() : WorkoutHistory = WorkoutHistory(
-    name = this.id.toString(),
-    date = this.date
+fun WorkoutHistoryEntity.toWorkoutHistoryItem(workoutName: String) : WorkoutHistoryItem = WorkoutHistoryItem(
+    id = this.id,
+    workoutName = workoutName,
+    workoutDateTime = this.date
 )
 
-fun WorkoutHistoryCreate.toWorkoutHistoryEntity(workoutId: Long) : WorkoutHistoryEntity = WorkoutHistoryEntity(
+fun WorkoutHistoryCreate.toWorkoutHistoryEntity() : WorkoutHistoryEntity = WorkoutHistoryEntity(
     id = 0,
     workoutId = workoutId,
-    date = Date().toString()
+    date = LocalDateTime.now()
 )

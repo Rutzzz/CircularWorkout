@@ -1,35 +1,25 @@
 package cz.muni.fi.circularworkout.repository
 
 import android.content.Context
-import cz.muni.fi.circularworkout.data.*
+import cz.muni.fi.circularworkout.data.WorkoutHistoryCreate
+import cz.muni.fi.circularworkout.data.WorkoutHistoryItem
 import cz.muni.fi.circularworkout.database.CWDatabase
-import cz.muni.fi.circularworkout.database.WorkoutEntity
+import cz.muni.fi.circularworkout.database.WorkoutEntityDao
 import cz.muni.fi.circularworkout.database.WorkoutHistoryEntityDao
-import java.time.LocalDate
-import java.time.MonthDay
-import java.util.*
 
 
 class WorkoutHistoryRepository(
     context: Context,
+    private val workoutDao: WorkoutEntityDao = CWDatabase.create(context).workoutEntityDao(),
     private val workoutHistoryDao: WorkoutHistoryEntityDao = CWDatabase.create(context).workoutHistoryEntityDao()
 ) {
-    fun getMockedData(count: Int = 5): List<WorkoutHistory> =
-        mutableListOf<WorkoutHistory>().apply {
-            repeat(count) {
-                val item = WorkoutHistory(
-                    name = it.toString(),
-                    date = Date().toString()
-                )
-                add(item)
-            }
+
+    fun getAllItems() : List<WorkoutHistoryItem> =
+        workoutHistoryDao.getAll().map {
+            val workout = workoutDao.getById(it.workoutId)
+            it.toWorkoutHistoryItem(workoutName = workout?.name ?: "")
         }
 
-    fun getAll() : List<WorkoutHistoryDetails> =
-        workoutHistoryDao.getAll();
-
-    fun save(workout: WorkoutHistoryCreate) = workoutHistoryDao.save(workout.toWorkoutHistoryEntity(workoutId = workout.workoutId))
-
-    fun delete(id: Long) = workoutHistoryDao.deleteById(id)
+    fun save(workout: WorkoutHistoryCreate) = workoutHistoryDao.save(workout.toWorkoutHistoryEntity())
 
 }

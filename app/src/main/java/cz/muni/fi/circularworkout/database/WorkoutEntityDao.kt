@@ -23,4 +23,7 @@ interface WorkoutEntityDao {
     @Query("SELECT * FROM WorkoutEntity WHERE name = :name")
     fun getByName(name: String): WorkoutEntity?
 
+    @Query("SELECT * FROM WorkoutEntity WHERE id = :id")
+    fun getById(id: Long): WorkoutEntity?
+
 }
