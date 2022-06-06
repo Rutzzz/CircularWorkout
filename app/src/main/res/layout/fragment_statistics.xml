@@ -27,26 +27,26 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/total_hours_textView"
+                    android:id="@+id/total_minutes_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Total minutes:"
+                    android:text="@string/total_minutes"
                     android:textAlignment="textStart"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/total_hours"
+                    app:layout_constraintEnd_toStartOf="@id/total_minutes"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                 </TextView>
 
                 <TextView
-                    android:id="@+id/total_hours"
+                    android:id="@+id/total_minutes"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="123"
+                    tools:text="120"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/total_hours"
-                    app:layout_constraintStart_toStartOf="@id/total_hours_textView"
+                    app:layout_constraintEnd_toStartOf="@id/total_minutes"
+                    app:layout_constraintStart_toStartOf="@id/total_minutes_textView"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="16dp">
@@ -70,7 +70,7 @@
                     android:id="@+id/total_workouts_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Total workouts:"
+                    android:text="@string/total_workouts"
                     android:textAlignment="textStart"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/total_workouts"
@@ -83,7 +83,7 @@
                     android:id="@+id/total_workouts"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="123"
+                    tools:text="15"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/total_workouts_textView"
                     app:layout_constraintTop_toTopOf="parent"

@@ -7,12 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.fi.circularworkout.databinding.FragmentStatisticsBinding
+import cz.muni.fi.circularworkout.repository.StatisticsRepository
 import cz.muni.fi.circularworkout.repository.WorkoutHistoryRepository
 
 
 class StatisticsFragment : Fragment() {
 
     private lateinit var binding: FragmentStatisticsBinding
+
+    private val statisticsRepository: StatisticsRepository by lazy {
+        StatisticsRepository(requireContext())
+    }
 
     private val workoutHistoryRepository: WorkoutHistoryRepository by lazy {
         WorkoutHistoryRepository(requireContext())
@@ -30,15 +35,9 @@ class StatisticsFragment : Fragment() {
         )
         binding.workoutsHistoryView.layoutManager = LinearLayoutManager(requireContext())
         binding.workoutsHistoryView.adapter = adapter
-        val history = adapter.history
-//        val totalTime = history.map { workout -> workout.exerciseTime * workout.rounds * workout.exercises.size }.sum()
-//        val hours = totalTime / 3600
-//        val minutes = (totalTime % 3600) / 60
-//        val seconds = totalTime % 60
-//        binding.totalHours.text = "$hours:$minutes:$seconds"
-        binding.totalHours.text = "TBD"
-//        binding.totalHours.text = totalTime.toString()
-        binding.totalWorkouts.text = history.size.toString()
+        val statistics = statisticsRepository.getStatistics()
+        binding.totalMinutes.text = (statistics.totalSeconds / 60).toString()
+        binding.totalWorkouts.text = statistics.totalWorkouts.toString()
         return binding.root
     }
 
