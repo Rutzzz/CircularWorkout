@@ -21,6 +21,9 @@
     <string name="primary">Primary:</string>
     <string name="secondary">Secondary:</string>
     <string name="play_pause">Play/pause</string>
+    <string name="total_minutes">Minutes</string>
+    <string name="total_workouts">Workouts</string>
+    <string name="history">History</string>
 
 
     <string-array name="exercises">

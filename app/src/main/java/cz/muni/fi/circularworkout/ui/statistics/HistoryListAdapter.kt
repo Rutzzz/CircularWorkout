@@ -3,8 +3,7 @@ package cz.muni.fi.circularworkout.ui.statistics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import cz.muni.fi.circularworkout.data.WorkoutHistory
-import cz.muni.fi.circularworkout.data.WorkoutHistoryDetails
+import cz.muni.fi.circularworkout.data.WorkoutHistoryItem
 import cz.muni.fi.circularworkout.databinding.ItemHistoryListBinding
 import cz.muni.fi.circularworkout.repository.WorkoutHistoryRepository
 
@@ -12,8 +11,8 @@ class HistoryListAdapter (
     private val workoutHistoryRepository: WorkoutHistoryRepository,
 ): RecyclerView.Adapter<HistoryViewHolder>() {
 
-    val history: List<WorkoutHistoryDetails> by lazy {
-        workoutHistoryRepository.getAll()
+    val history: List<WorkoutHistoryItem> by lazy {
+        workoutHistoryRepository.getAllItems()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {

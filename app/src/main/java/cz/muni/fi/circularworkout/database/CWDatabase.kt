@@ -5,13 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import cz.muni.fi.circularworkout.database.converters.JsonConverter
+import cz.muni.fi.circularworkout.database.converters.LocalDateTimeConverter
 
 
 @Database(
     entities = [WorkoutEntity::class, WorkoutHistoryEntity::class],
-    version = 4
+    version = 5
 )
-@TypeConverters(Convertets::class)
+@TypeConverters(JsonConverter::class, LocalDateTimeConverter::class)
 abstract class CWDatabase : RoomDatabase() {
 
     companion object {

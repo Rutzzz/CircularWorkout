@@ -151,8 +151,8 @@ class WorkoutSetupFragment : Fragment() {
         }
 
         binding.startWorkoutButton.setOnClickListener {
-            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-            val name = "Workout: ${sdf.format(Date())}"
+            val sdf = SimpleDateFormat("dd/M/yy hh:mm:ss")
+            val name = "W:${sdf.format(Date())}"
             val newWorkout = WorkoutCreate(
                 name = name,
                 exercises = adapter.getSelectedExercises(),

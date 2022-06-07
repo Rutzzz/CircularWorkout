@@ -1,9 +1,9 @@
-package cz.muni.fi.circularworkout.database
+package cz.muni.fi.circularworkout.database.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 
-class Convertets {
+class JsonConverter {
 
     @TypeConverter
     fun listToJson(value: List<String>?): String = Gson().toJson(value)
