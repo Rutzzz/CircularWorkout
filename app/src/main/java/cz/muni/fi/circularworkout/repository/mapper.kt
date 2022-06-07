@@ -50,9 +50,9 @@ fun WorkoutEntity.toWorkoutDetail() : WorkoutDetail = WorkoutDetail(
     isSaved = this.isSaved
 )
 
-fun WorkoutHistoryEntity.toWorkoutHistoryItem(workoutName: String) : WorkoutHistoryItem = WorkoutHistoryItem(
+fun WorkoutHistoryEntity.toWorkoutHistoryItem(workoutName: String?) : WorkoutHistoryItem = WorkoutHistoryItem(
     id = this.id,
-    workoutName = workoutName,
+    workoutName = workoutName ?: "-",
     workoutDateTime = this.date
 )
 

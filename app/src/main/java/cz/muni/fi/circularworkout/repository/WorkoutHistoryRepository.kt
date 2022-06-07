@@ -17,8 +17,8 @@ class WorkoutHistoryRepository(
     fun getAllItems() : List<WorkoutHistoryItem> =
         workoutHistoryDao.getAll().map {
             val workout = workoutDao.getById(it.workoutId)
-            it.toWorkoutHistoryItem(workoutName = workout?.name ?: "")
-        }
+            it.toWorkoutHistoryItem(workoutName = workout?.name)
+        }.sortedByDescending { wh -> wh.workoutDateTime }
 
     fun save(workout: WorkoutHistoryCreate) = workoutHistoryDao.save(workout.toWorkoutHistoryEntity())
 

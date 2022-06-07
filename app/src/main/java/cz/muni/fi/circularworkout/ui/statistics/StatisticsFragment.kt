@@ -33,8 +33,8 @@ class StatisticsFragment : Fragment() {
         val adapter = HistoryListAdapter(
             workoutHistoryRepository = workoutHistoryRepository
         )
-        binding.workoutsHistoryView.layoutManager = LinearLayoutManager(requireContext())
-        binding.workoutsHistoryView.adapter = adapter
+        binding.historyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.historyRecyclerView.adapter = adapter
         val statistics = statisticsRepository.getStatistics()
         binding.totalMinutes.text = (statistics.totalSeconds / 60).toString()
         binding.totalWorkouts.text = statistics.totalWorkouts.toString()
